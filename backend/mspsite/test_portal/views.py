@@ -19,10 +19,6 @@ def login(request):
     	else:
         	form = Candidate()
     	return render(request, 'test_portal/login.html', {'form': form})
-
-# Create your views here.
-def login(request):
-	return render(request,'test_portal/login.html')
 def welcome(request):
 	return render(request,'test_portal/welcome.html')
 def test(request):
