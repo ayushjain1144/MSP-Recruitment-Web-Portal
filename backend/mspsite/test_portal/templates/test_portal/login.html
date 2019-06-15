@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="action_page.php">
+        <div class="container">
+            <div  class="register">
+                <h1>Register</h1>
+            </div>
+            
+            <br><br><hr>
+            <hr>
+            <i class="fa fa-user icon"></i>
+            <label for="name"><b>First Name</b></label>
+                <input type="text" placeholder="Required" required name="name"/>
+            <br><br>
+            <label for="name"><b>Last Name</b></label>
+                <input type="text" placeholder="Required" required name="name"/>
+            <br><br>
+            <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Required" name="email" required/>
+            <br><br>
+            <label for="id"><b>BITS Id</b></label>
+                <input type=text placeholder="Required" required />
+            <br><br>
+            <label for="contact no."><b>Contact Number</b></label>
+                <input type="tel" placeholder="Required" required name="contact no." size= "10" inputmode="numeric" minlength="10" maxlength="10"/>
+            <br><br><br><br>  
+        </div>
+        <script type="text">
+            function checkForm(action){
+                if(form.inputfield.value == "name") {
+                    alert("Error: Input is invalid!");
+                    form.inputfield.focus();
+                    return false;
+                }
+            }
+        </script>
+        <div class="clearfix">
+            <button type="button" class="btn btn-success" style="width: 400px; height: 100px;"><a href="{% url 'test' %}">Start Test</a></button>
+        </div>
+</form>
+  {% endblock %}
