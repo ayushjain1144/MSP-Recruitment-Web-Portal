@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'mspsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'MSP_DATABASE',
+        'NAME': 'msp_database',
         'USER': 'ayushjain1144',
         'PASSWORD': 'mspbits',
         'HOST': 'localhost',
