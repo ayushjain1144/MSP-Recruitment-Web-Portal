@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <form action="action_page.php">
+    <form action="{% url 'test' %}">
         <div class="container">
             <div  class="register">
                 <h1>Register</h1>
@@ -10,10 +10,10 @@
             <br><br><hr>
             <hr>
             <label for="name"><b>First Name</b></label>
-                <input type="text" placeholder="Required" required name="firstname" pattern="[a-zA-Z]{1,25}"/>
+                <input type="text" placeholder="Required" required name="firstname" pattern="[a-zA-Z]{1,25}" maxlength="25" />
             <br><br>
             <label for="name"><b>Last Name</b></label>
-                <input type="text" placeholder="Required" required name="lastname" pattern="[a-zA-Z]{1,25}"/>
+                <input type="text" placeholder="Required" required name="lastname" pattern="[a-zA-Z]{1,25}" maxlength="25" />
             <br><br>
             <label for="email"><b>BITS Mail</b></label>
                 <input type="email" placeholder="Required" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
@@ -27,7 +27,7 @@
             <br><br><br><br>  
         </div>
         <div class="clearfix">
-            <button type="button" class="btn btn-success" style="width: 400px; height: 100px;"><a href="{% url 'test' %}">Start Test</a></button>
+            <input type="submit" id="submitbtn" value="Start Test" class="btn btn-success" style="width: 400px; height: 100px;" />
         </div>
 </form>
   {% endblock %}
