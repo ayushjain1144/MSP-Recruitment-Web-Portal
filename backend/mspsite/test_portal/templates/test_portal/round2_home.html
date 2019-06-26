@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        <div class = "Welcome">
+            <p>
+                Welcome Candidate! Your BITS ID is {{ id }}
+            </p>
+        </div>
+
+        <div class="Question">
+            {% for question in questions %}
+
+                <h2>{{ question.question }}</h2>
+
+                <form method="POST" 
+                      class="post-form">{% csrf_token %}
+
+                    <center>
+                       <input type = "text" style = "margin-left:20%;"
+                          placeholder = "Answer" name = "answer" />
+                    </center>
+
+                    <button type="submit" class="save btn btn-default">Save</button>
+
+                </form>
+
+            {% empty %}
+                <p>There are no questions</p>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="pagination">
+            <div class="section-inner clearfix">
+                <p>
+                    {% if questions.has_previous %}
+                        <a href="?page={{ questions.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    {% if questions.has_next %}
+                        <a href="?page={{ questions.next_page_number }}">Next</a>
+                    {% endif %}
+
+                    <span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
+                </p>
+            </div>
+        </div>
+
+{% endblock %}

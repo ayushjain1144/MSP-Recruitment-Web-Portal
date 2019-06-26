@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <form action="{% url 'test' %}">
+    <form method = "POST"">
+        {% csrf_token %}
         <div class="container">
             <div  class="register">
                 <h1>Register</h1>
@@ -20,10 +21,10 @@
             <br><br>
             <label for="id"><b>BITS Id</b></label>
             <p>Example: 2010A5PS9867P</p>
-                <input type=text placeholder="Required" required pattern="2019(AB|A\d|B\d)[PT]S\d{4}P"/>
+                <input type=text placeholder="Required" required name = "bitsid" pattern="2019(AB|A\d|B\d)[PT]S\d{4}P"/>
             <br><br>
             <label for="contact no."><b>Contact Number</b></label>
-                <input type="tel" placeholder="Required" required name="contact no." size= "10" inputmode="numeric" minlength="10" maxlength="10" pattern="\d{10}"/>
+                <input type="tel" placeholder="Required" required name="contact" size= "10" inputmode="numeric" minlength="10" maxlength="10" pattern="\d{10}"/>
             <br><br><br><br>
         </div>
         <div class="clearfix">

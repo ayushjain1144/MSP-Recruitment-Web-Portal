@@ -19,3 +19,35 @@ class Candidate(models.Model):
 			instance.Candidate.save()
 
 # Create your models here.
+
+
+class Question(models.Model):
+
+	question = models.CharField(max_length=256)
+	is_published = models.BooleanField(default = False)
+
+	def __str__(self):
+		return self.question
+
+
+class Answer(models.Model):
+
+	question = models.ForeignKey("Question", related_name = "answer", on_delete=models.DO_NOTHING)
+	text = models.CharField(max_length = 1000)
+
+	def __str__(self):
+		return self.text
+
+
+class Response(models.Model):
+
+	user = models.ForeignKey("Candidate", on_delete=models.DO_NOTHING,)
+	question = models.ForeignKey("Question", on_delete=models.DO_NOTHING,)
+
+	free_response = models.TextField(max_length = 2000, blank = True)
+
+	def submit(self):
+		self.save()
+
+	def __str__(self):
+		return self.free_response
