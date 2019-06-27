@@ -13,24 +13,6 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 
-def question_list(request, id = '1'):
-
-	questions= Question.objects.order_by("-id").all()
-	paginator = Paginator(questions, 1)
-
-	page = request.GET.get('page')
-
-	form = GetResponse
-
-	try:
-		questions = paginator.page(page)
-	except PageNotAnInteger:
-		questions = paginator.page(1)
-	except EmptyPage:
-		questions = paginator.page(paginator.num_pages)
-
-	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'id':id})
-
 def login(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST)
@@ -48,10 +30,35 @@ def login(request):
 			candidate.bitsid = form.cleaned_data['bitsid']
 			candidate.contact = form.cleaned_data['contact']
 			candidate.save()
-			return redirect('question_list', id = candidate.bitsid)
+			return redirect(question_list, pk = 1, id = candidate.bitsid)
+		else:
+			print()
 	else:
 		form = PostForm()
 	return render(request, 'test_portal/login.html', {'form': form})
+
+
+def question_list(request, pk, id = 'a'):
+
+	questions= Question.objects.order_by("-id").all()
+	paginator = Paginator(questions, 1)
+
+	page = request.GET.get('page')
+
+	try:
+		questions = paginator.page(page)
+	except PageNotAnInteger:
+		questions = paginator.page(pk)
+	except EmptyPage:
+		questions = paginator.page(paginator.num_pages)
+
+#	user = Candidate.objects.filter(bitsid='id').first()
+#	new = Response.objects.filter(user=user, question=questions.object_list.first())
+	form = GetResponse
+
+	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id})
+
+
 
 def welcome(request):
 	return render(request,'test_portal/welcome.html')
@@ -61,16 +68,18 @@ def test1(request):
 
 
 
-def response_save(request, question_rec, id):
+def response_save(request, pk, id = 'a'):
 	if request.method == 'POST':
 		response_rec = GetResponse(request.POST)
 		if response_rec.is_valid():
 			response = Response()
 			response.free_response = response_rec.cleaned_data['free_response']
-			response.question = question_rec
-			response.user = Candidate.objects.get(id=id)
+			response.question = Question.objects.get(pk = pk)
+			response.user = Candidate.objects.get(bitsid=id)
 			response.save()
-	else:
-		response_rec = GetResponse()
+			redirect(question_list, pk = pk, id = id)
 
-	return render(question_list, id, response_rec)
+	else:
+		return HttpResponse('Form Not Validated')
+
+	return redirect(question_list, pk = pk, id = id)

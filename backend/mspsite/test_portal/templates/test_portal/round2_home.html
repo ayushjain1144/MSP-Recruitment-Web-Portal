@@ -13,13 +13,12 @@
 
                 <h2>{{ question.question }}</h2>
 
-                <form method="POST" 
-                      class="post-form">{% csrf_token %}
+                <form action="{% url 'response_save' questions.number id %}" method="POST"
+                      class="post-form" >{% csrf_token %}
 
-                    <center>
-                       <input type = "text" style = "margin-left:20%;"
-                          placeholder = "Answer" name = "answer" />
-                    </center>
+
+                       <input type = "text" style = "margin-left:10%;"
+                          placeholder = "Answer" name = "free_response" />
 
                     <button type="submit" class="save btn btn-default">Save</button>
 
@@ -31,7 +30,6 @@
             {% endfor %}
 
         </div>
-
 
         <div class="pagination">
             <div class="section-inner clearfix">

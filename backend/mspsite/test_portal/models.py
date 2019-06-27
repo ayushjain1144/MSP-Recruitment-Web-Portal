@@ -9,7 +9,7 @@ class Candidate(models.Model):
 	firstname = models.CharField(max_length=25)
 	lastname = models.CharField(max_length=25)
 	email = models.URLField(default='')
-	bitsid = models.CharField(max_length=20)
+	bitsid = models.CharField(max_length=20, unique = True)
 	contact = models.IntegerField(default=0,validators=[MinValueValidator(100000000),MaxValueValidator(9999999999)])
 	use_required_attribute = True
 
@@ -17,6 +17,9 @@ class Candidate(models.Model):
 		if created:
 			Candidate.objects.create(user=instance)
 			instance.Candidate.save()
+
+	def __str__(self):
+		return self.bitsid
 
 # Create your models here.
 
