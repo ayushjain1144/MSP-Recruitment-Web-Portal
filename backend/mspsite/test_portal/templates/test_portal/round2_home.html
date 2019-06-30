@@ -17,8 +17,7 @@
                       class="post-form" >{% csrf_token %}
 
 
-                       <input type = "text" style = "margin-left:10%;"
-                          placeholder = "Answer" name = "free_response" />
+                    {{form.as_p}}
 
                     <button type="submit" class="save btn btn-default">Save</button>
 

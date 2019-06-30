@@ -1,19 +1,49 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Candidate
-from django.contrib.auth import login, authenticate
+from django.contrib import auth
+from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from .forms import PostForm
 from .models import Question
 from .models import Response
 from .forms import GetResponse
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 
-def login(request):
+#In progress
+#def login(request):
+#	if request.user.is_authenticated:
+#		return redirect('admin_page')
+#
+#	if request.method == 'POST':
+#		username = request.POST.get('username')
+#		password = request.POST.get('password')
+#		user = auth.authenticate(username=username, password=password)
+#
+#		if user is not None:
+#			auth.login(request, user)
+#			return redirect('admin_page')
+		# correct username and password login the user
+#		else:
+#			messages.error(request, 'Error wrong username/password')
+#
+#	return render(request, 'test_portal/login.html')
+
+
+#def logout(request):
+#	auth.logout(request)
+#	return render(request, 'test_portal/logout.html')
+
+
+#def admin_page(request):
+#	if not request.user.is_authenticated:
+#		return redirect('test_login')
+
+#	return render(request, 'test_portal/admin_page.html')
+
+def register(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST)
 
@@ -35,12 +65,12 @@ def login(request):
 			print()
 	else:
 		form = PostForm()
-	return render(request, 'test_portal/login.html', {'form': form})
+	return render(request, 'test_portal/register.html', {'form': form})
 
 
 def question_list(request, pk, id = 'a'):
 
-	questions= Question.objects.order_by("-id").all()
+	questions= Question.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
 
 	page = request.GET.get('page')
@@ -52,9 +82,12 @@ def question_list(request, pk, id = 'a'):
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
 
-#	user = Candidate.objects.filter(bitsid='id').first()
-#	new = Response.objects.filter(user=user, question=questions.object_list.first())
-	form = GetResponse
+	try:
+		user = Candidate.objects.get(bitsid=id)
+		new = Response.objects.get(user=user, question=questions.object_list.first())
+		form = GetResponse(initial={'free_response': new.free_response})
+	except Response.DoesNotExist:
+		form = GetResponse(initial={'free_response': 'Answer here!'})
 
 	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id})
 
@@ -70,9 +103,12 @@ def test1(request):
 
 def response_save(request, pk, id = 'a'):
 	if request.method == 'POST':
+		try:
+			response = Response.objects.get(user=Candidate.objects.get(bitsid=id), question=Question.objects.get(pk = pk))
+		except Response.DoesNotExist:
+			response = Response()
 		response_rec = GetResponse(request.POST)
 		if response_rec.is_valid():
-			response = Response()
 			response.free_response = response_rec.cleaned_data['free_response']
 			response.question = Question.objects.get(pk = pk)
 			response.user = Candidate.objects.get(bitsid=id)
@@ -80,6 +116,6 @@ def response_save(request, pk, id = 'a'):
 			redirect(question_list, pk = pk, id = id)
 
 	else:
-		return HttpResponse('Form Not Validated')
+		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
 	return redirect(question_list, pk = pk, id = id)
