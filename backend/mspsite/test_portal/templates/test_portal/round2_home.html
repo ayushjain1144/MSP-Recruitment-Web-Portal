@@ -4,22 +4,23 @@
 {% block content %}
         <div class = "Welcome">
             <p>
-                Welcome Candidate! Your BITS ID is {{ id }}
+                Welcome Candidate! Your username is {{ id }}
             </p>
         </div>
 
         <div class="Question">
             {% for question in questions %}
 
-                <h2>{{ question.question }}</h2>
+                <h2>Question : {{ question.question }}          (Marks : {{ question.marks }})</h2>
 
-                <form action="{% url 'response_save' questions.number id %}" method="POST"
+                <form action="{% url 'response_save' pksent id %}" method="POST"
                       class="post-form" >{% csrf_token %}
 
 
                     {{form.as_p}}
 
-                    <button type="submit" class="save btn btn-default">Save</button>
+                    <input type="submit" id="submitbtn" value="Save" class="btn btn-success" style="width: 100px; height: 50px;" />
+
 
                 </form>
 
@@ -37,13 +38,31 @@
                         <a href="?page={{ questions.previous_page_number }}">Previous</a>
                     {% endif %}
 
+
                     {% if questions.has_next %}
                         <a href="?page={{ questions.next_page_number }}">Next</a>
                     {% endif %}
 
+                    <br>
+
                     <span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
+
+                    <br>
+                    <br>
+
+                    {% if questions.has_next == False %}
+                        <a href="{% url 'test_logout' %}">Finish Test</a>
+                    {% endif %}
+
+
+
                 </p>
             </div>
         </div>
+s
+        <div class = "Logout">
+   <!--         <a href="{% url 'test_logout' %}">Logout</a> -->
+        </div>
+
 
 {% endblock %}
