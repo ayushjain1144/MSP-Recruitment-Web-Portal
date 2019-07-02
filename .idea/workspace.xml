@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0646727e-216b-4be2-bfd5-8aa7a705df8f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/migrations/0002_question_sub.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/migrations/0003_auto_20190626_1307.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/migrations/0004_auto_20190627_0940.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/admin_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/logout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/round2_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/round2_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mspsite/test_portal/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mspsite/test_portal/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +19,18 @@
               <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+            <state relative-caret-position="150">
+              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -144,7 +141,6 @@
       <list>
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/login.html" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/admin_page.html" />
-        <option value="$PROJECT_DIR$/backend/mspsite/test_portal/admin.py" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/forms.py" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/models.py" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/welcome.html" />
@@ -154,6 +150,7 @@
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/logout.html" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/views.py" />
         <option value="$PROJECT_DIR$/backend/mspsite/test_portal/urls.py" />
+        <option value="$PROJECT_DIR$/backend/mspsite/test_portal/admin.py" />
       </list>
     </option>
   </component>
@@ -280,7 +277,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13169399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13169399" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -310,16 +307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-345">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -392,16 +379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-791">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/templates/test_portal/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -414,10 +391,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        <state relative-caret-position="150">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-791">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/mspsite/test_portal/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
