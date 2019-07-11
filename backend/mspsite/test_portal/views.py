@@ -119,6 +119,9 @@ def response_save(request, pk, id = 'a'):
 				pk = pknext
 				redirect('question_list', pk = pk, id = id)
 
+			elif 'Finish' in request.POST:
+				return redirect('test_logout')
+
 			else:
 				redirect('question_list', pk = pk, id = id)
 

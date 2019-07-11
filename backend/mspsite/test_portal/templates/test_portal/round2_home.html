@@ -20,8 +20,6 @@
 
                 {{form.as_p}}
 
-                <input type="submit" name = "SaveCurrent" value="Save" class="btn btn-success" style="width: 100px; height: 50px;" />
-
                 {% empty %}
                     <p>There are no questions</p>
 
@@ -49,7 +47,7 @@
                         <br>
 
                         {% if questions.has_next == False %}
-                            <a href="{% url 'test_logout' %}">Finish Test</a>
+                            <input type="submit" name = "Finish" value="Finish Test" class="btn btn-success" style="width: 100px; height: 50px;" />
                         {% endif %}
                     </p>
 
