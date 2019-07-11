@@ -8,58 +8,58 @@
             </p>
         </div>
 
-        <div class="Question">
-            {% for question in questions %}
+
+
+        <form action="{% url 'response_save' pksent id %}" method="POST"
+              class="post-form" >{% csrf_token %}
+
+             <div class="Question">
+                {% for question in questions %}
 
                 <h2>Question : {{ question.question }}          (Marks : {{ question.marks }})</h2>
 
-                <form action="{% url 'response_save' pksent id %}" method="POST"
-                      class="post-form" >{% csrf_token %}
+                {{form.as_p}}
 
+                <input type="submit" name = "SaveCurrent" value="Save" class="btn btn-success" style="width: 100px; height: 50px;" />
 
-                    {{form.as_p}}
+                {% empty %}
+                    <p>There are no questions</p>
 
-                    <input type="submit" id="submitbtn" value="Save" class="btn btn-success" style="width: 100px; height: 50px;" />
+                {% endfor %}
 
-
-                </form>
-
-            {% empty %}
-                <p>There are no questions</p>
-
-            {% endfor %}
-
-        </div>
-
-        <div class="pagination">
-            <div class="section-inner clearfix">
-                <p>
-                    {% if questions.has_previous %}
-                        <a href="?page={{ questions.previous_page_number }}">Previous</a>
-                    {% endif %}
-
-
-                    {% if questions.has_next %}
-                        <a href="?page={{ questions.next_page_number }}">Next</a>
-                    {% endif %}
-
-                    <br>
-
-                    <span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
-
-                    <br>
-                    <br>
-
-                    {% if questions.has_next == False %}
-                        <a href="{% url 'test_logout' %}">Finish Test</a>
-                    {% endif %}
-
-
-
-                </p>
             </div>
-        </div>
+
+            <div class="pagination">
+                <div class="section-inner clearfix">
+                    <p>
+                        {% if questions.has_previous %}
+                            <input type="submit" name = "SavePrevious" value="Previous" class="btn btn-success" style="width: 100px; height: 50px;" />
+                        {% endif %}
+
+
+                        {% if questions.has_next %}
+                            <input type="submit" name = "SaveNext" value="Next" class="btn btn-success" style="width: 100px; height: 50px;" />
+                        {% endif %}
+
+                        <br>
+
+                        <span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
+
+                        <br>
+                        <br>
+
+                        {% if questions.has_next == False %}
+                            <a href="{% url 'test_logout' %}">Finish Test</a>
+                        {% endif %}
+                    </p>
+
+                </div>
+             </div>
 s
+        </form>
+
+
+
         <div class = "Logout">
    <!--         <a href="{% url 'test_logout' %}">Logout</a> -->
         </div>

@@ -74,26 +74,23 @@ def question_list(request, pk = Question.objects.order_by("id").values_list('id'
 	questions= Question.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
 
-	page = request.GET.get('page')
-
-	if page is None:
-		page = pk-base_pk + 1
+	page = pk-base_pk + 1
 
 	try:
 		questions = paginator.page(page)
 	except PageNotAnInteger:
-		questions = paginator.page(pk)
+		questions = paginator.page(1)
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
 
 	try:
 		user = Candidate.objects.get(username=id)
-		new = Response.objects.get(user=user, question=questions.object_list.first())
+		new = Response.objects.get(user=user, question=Question.objects.get(pk = pk))
 		form = GetResponse(initial={'free_response': new.free_response})
 	except Response.DoesNotExist:
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
-	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': base_pk + int(page) - 1, 'id':id})
+	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id})
 
 
 def welcome(request):
@@ -112,7 +109,18 @@ def response_save(request, pk, id = 'a'):
 			response.question = Question.objects.get(pk = pk)
 			response.user = Candidate.objects.get(username=id)
 			response.save()
-			redirect(question_list, pk = pk, id = id)
+			if 'SavePrevious' in request.POST:
+				pkprev = Question.objects.filter(pk__lt = pk).order_by('-pk').values_list('id', flat=True).first()
+				pk = pkprev
+				redirect('question_list', pk = pk, id = id)
+
+			elif 'SaveNext' in request.POST:
+				pknext = Question.objects.filter(pk__gt = pk).order_by('pk').values_list('id', flat=True).first()
+				pk = pknext
+				redirect('question_list', pk = pk, id = id)
+
+			else:
+				redirect('question_list', pk = pk, id = id)
 
 	else:
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
