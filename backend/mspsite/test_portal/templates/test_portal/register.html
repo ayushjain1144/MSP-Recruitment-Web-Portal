@@ -1,50 +1,99 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
 
-    <form method = "POST"">
-        {% csrf_token %}
-        <div class="container">
-            <div  class="register">
-                <h1>Register</h1>
+<div id="root" style="height: 100%">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="{% static '/images/microsoft_logo.png' %}" height="50" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" href="#">Page 1<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Page 2</a>
+                <a class="nav-item nav-link" href="#">Page 3</a>
+                <a class="nav-item nav-link" href="#">Page 4</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class="centered" id="whitebox">
+        <div class="container-fluid">
+            <div class="row">
+                <img src="{% static 'images/msp_logo.jpg' %}" alt="" style="width:70px">
+                <h1 class="display-4">Register</h1>
+            </div>
+        </div>
+
+        <form method = "POST" style="padding: 10px" id="register" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Tom" pattern="[a-zA-Z]{1,25}" maxlength="25" required>
             </div>
 
-            <br><br><hr>
-            <hr>
-            <label for="name"><b>First Name</b></label>
-                <input type="text" placeholder="Required" required name="firstname" pattern="[a-zA-Z]{1,25}" maxlength="25" />
-            <br><br>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lastname"  id="lastname" placeholder="Cruise" pattern="[a-zA-Z]{1,25}" maxlength="25"
+                    required>
+            </div>
 
-            <label for="name"><b>Last Name</b></label>
-                <input type="text" placeholder="Required" required name="lastname" pattern="[a-zA-Z]{1,25}" maxlength="25" />
-            <br><br>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="As on slip" maxlength="25" required>
+            </div>
 
-            <label for="name"><b>Username ( as on slip) </b></label>
-                <input type="text" placeholder="Required" required name="username" maxlength="25" />
-            <br><br>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="name@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
 
-            <label for="name"><b>Password (as on slip) </b></label>
-                <input type="text" placeholder="Required" required name="password" maxlength="25" />
-            <br><br>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="As on slip" maxlength="25" required>
+            </div>
 
-            <label for="email"><b>Personal Mail</b></label>
-                <input type="email" placeholder="Required" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
-            <br><br>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Phone Number</label>
+                <input type="tel" class="form-control" name="contact" id="phoneNumber" placeholder="9876567890" inputmode="numeric" minlength="10" maxlength="10" pattern="\d{10}" required>
+            </div>
 
-            <label for="id"><b>BITS Id</b></label>
-            <p>Example: 2010A5PS9867P</p>
-                <input type=text placeholder="Required" required name = "bitsid" pattern="2019(AB|A\d|B\d)[PT]S\d{4}P"/>
-            <br><br>
+            <div class="form-group">
+                <label for="bitsid">BITS ID</label>
+                <input type="text" class="form-control" name="bitsid" id="bitsid" placeholder="2019A3PS0123P"  pattern="2019(AB|A\d|B\d)[PT]S\d{4}P" required>
+            </div>
 
-            <label for="contact no."><b>Contact Number</b></label>
-                <input type="tel" placeholder="Required" required name="contact" size= "10" inputmode="numeric" minlength="10" maxlength="10" pattern="\d{10}"/>
-            <br><br><br><br>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">I think I am good at...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name = "description" rows="3" required></textarea>
+            </div>
 
-        </div>
+            <input type="submit" class="btn btn-primary btn-block btn-lg" style="background-color: #bc2981" value = "Register" />
+        </form>
+    </div>
+    <canvas id="c"></canvas>
+    <script src="{% static 'script.js' %}"></script>
+</div>
+<!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
 
 
-        <div class="clearfix">
-            <input type="submit" id="submitbtn" value="Register Me" class="btn btn-success" style="width: 400px; height: 100px;" />
-        </div>
-
-    </form>
 {% endblock %}

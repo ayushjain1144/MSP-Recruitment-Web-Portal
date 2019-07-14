@@ -43,11 +43,6 @@ def register(request):
 		form = PostForm(request.POST)
 
 		if form.is_valid():
-			email = form.cleaned_data['email']
-			try:
-				validate_email(email)
-			except ValidationError:
-				print("oops! wrong email")
 			candidate = Candidate()
 			candidate.firstname = form.cleaned_data['firstname']
 			candidate.lastname = form.cleaned_data['lastname']
@@ -56,10 +51,11 @@ def register(request):
 			candidate.email = form.cleaned_data['email']
 			candidate.bitsid = form.cleaned_data['bitsid']
 			candidate.contact = form.cleaned_data['contact']
+			candidate.description = form.cleaned_data['description']
 			candidate.save()
 			return redirect('test_login')
 		else:
-			print()
+			return HttpResponse(form.errors)
 	else:
 		form = PostForm()
 	return render(request, 'test_portal/register.html', {'form': form})
