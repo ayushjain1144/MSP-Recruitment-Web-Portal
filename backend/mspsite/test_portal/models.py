@@ -12,7 +12,8 @@ class Candidate(models.Model):
 	password = models.CharField(max_length =25, default = '')
 	email = models.URLField(default = '')
 	bitsid = models.CharField(max_length = 20, unique = True)
-	contact = models.IntegerField(default = 0,validators = [MinValueValidator(100000000),MaxValueValidator(9999999999)])
+	contact = models.CharField(max_length = 10, default = '')
+	description = models.CharField(max_length = 1000, default = '')
 	use_required_attribute = True
 
 	def update_user_profile(sender, instance, created, **kwargs):

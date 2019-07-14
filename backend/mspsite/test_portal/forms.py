@@ -6,7 +6,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Candidate
-        fields = ('firstname', 'lastname', 'username', 'password', 'email', 'bitsid', 'contact')
+        fields = ('firstname', 'lastname', 'username', 'password', 'email', 'bitsid', 'contact', 'description', )
 
 
 class GetResponse(forms.ModelForm):
