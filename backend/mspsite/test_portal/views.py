@@ -125,3 +125,40 @@ def response_save(request, pk, id = 'a'):
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
 	return redirect(question_list, pk = pk, id = id)
+def ques_detail(request, pk, id = 'a'):
+	questions= Questionm.objects.order_by("id").all()
+	paginator = Paginator(questions, 1)
+
+	page = request.GET.get('page')
+	try:
+		questions = paginator.page(page)
+	except PageNotAnInteger:
+		questions = paginator.page(pk)
+	except EmptyPage:
+		questions = paginator.page(paginator.num_pages)
+
+	return render(request, 'test_portal/ques_detail.html',{'questions': questions, 'pksent': pk, 'id':id})
+def ques_detail2(request, pk):
+	questions= Questioni.objects.order_by("id").all()
+	paginator = Paginator(questions, 1)
+
+	page = request.GET.get('page')
+
+	try:
+		questions = paginator.page(page)
+	except PageNotAnInteger:
+		questions = paginator.page(pk)
+	except EmptyPage:
+		questions = paginator.page(paginator.num_pages)
+
+	return render(request, 'test_portal/ques_detail2.html',{'questions': questions, 'pksent': pk, 'id':id})
+def round2(request):  
+	return render(request,'events/round2.html')
+def proceed(request):
+	ques = Questioni.objects.first()
+	context = {'ques': ques}  
+	return render(request,'test_portal/proceed.html',context)
+def instructions(request):
+	ques = Questionm.objects.first()
+	context = {'ques': ques}
+	return render(request,'test_portal/instructions.html', context)
