@@ -46,3 +46,31 @@ class Response(models.Model):
 
 	def __str__(self):
 		return self.free_response
+class Questionm(models.Model):
+
+	question = models.TextField()
+	opt1 = models.CharField(default='', max_length=200)
+	opt2 = models.CharField(default='', max_length=200)
+	opt3 = models.CharField(default='', max_length=200)
+	opt4 = models.CharField(default='', max_length=200)
+	marks = models.IntegerField(default = 10)
+
+	def __str__(self):
+		return self.question
+
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
+
+class Questioni(models.Model):
+
+	question = models.TextField()
+	ans = models.IntegerField(default=0, max_length=200)
+	marks = models.IntegerField(default = 10)
+
+	def __str__(self):
+		return self.question
+
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
