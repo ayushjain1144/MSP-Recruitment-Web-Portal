@@ -71,10 +71,6 @@ class Responsem(models.Model):
 	def __str__(self):
 		return self.responsem
 	
-class QuizAnswer(models.Model):
-    answer_option = models.ForeignKey(Responsei)
-    user = models.ForeignKey(Candidate)
-	
 class Questionm(models.Model):
 
 	question = models.TextField()
