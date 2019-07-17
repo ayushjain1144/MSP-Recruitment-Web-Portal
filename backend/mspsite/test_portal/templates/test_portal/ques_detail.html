@@ -1,0 +1,33 @@
+{% extends 'test.html' %}
+
+{% block title %}
+<div class="round1">
+	<h1>ROUND-1 MCQ</h1>
+	</div>
+	<div class="question">
+		{% for question in questions %}
+			<h2>Q. {{ question.question }}</h2><br><br><br><br>
+			<p><input type="checkbox" name="opt1">{{ question.opt1 }}<br><br>
+				<input type="checkbox" name="opt2">{{ question.opt2 }}<br><br>
+				<input type="checkbox" name="opt3">{{ question.opt3 }}<br><br>
+				<input type="checkbox" name="opt4">{{ question.opt4 }}<br><br></p>
+		{% endfor %}
+	</div>
+	<div class="pagination">
+		<div class="section-inner clearfix">
+			<p>
+				{% if questions.has_previous %}
+					<a href="?page={{ questions.previous_page_number }}">Previous</a>
+				{% endif %}
+
+				{% if questions.has_next %}
+					<a href="?page={{ questions.next_page_number }}">Next</a>
+				{% endif %}
+				{% if questions.has_next == False %}
+					<a href="{% url 'proceed' %}">Proceed</a>
+				{% endif %}
+				<span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
+			</p>
+		</div>
+	</div>
+{% endblock %}

@@ -23,7 +23,7 @@ class Candidate(models.Model):
 
 	def __str__(self):
 		return self.bitsid
-
+	
 class Question(models.Model):
 
 	question = models.CharField(max_length=256, default = '')
@@ -32,8 +32,7 @@ class Question(models.Model):
 
 	def __str__(self):
 		return self.question
-
-
+	
 class Response(models.Model):
 
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
@@ -46,3 +45,56 @@ class Response(models.Model):
 
 	def __str__(self):
 		return self.free_response
+class Responsei(models.Model):
+
+	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
+	question = models.ForeignKey("Questioni", on_delete=models.CASCADE,)
+
+	responsei = models.IntegerField(default = 10)
+
+	def submit(self):
+		self.save()
+
+	def __str__(self):
+		return self.responsei
+	
+class Responsem(models.Model):
+
+	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
+	question = models.ForeignKey("Questionm", on_delete=models.CASCADE,)
+
+	responsem = models.CharField(default='', max_length=200)
+
+	def submit(self):
+		self.save()
+
+	def __str__(self):
+		return self.responsem
+	
+class Questionm(models.Model):
+
+	question = models.TextField()
+	opt1 = models.CharField(default='', max_length=200)
+	opt2 = models.CharField(default='', max_length=200)
+	opt3 = models.CharField(default='', max_length=200)
+	opt4 = models.CharField(default='', max_length=200)
+	marks = models.IntegerField(default = 10)
+
+	def __str__(self):
+		return self.question
+
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()
+
+class Questioni(models.Model):
+
+	question = models.TextField()
+	marks = models.IntegerField(default = 10)
+
+	def __str__(self):
+		return self.question
+
+	def publish(self):
+		self.published_date = timezone.now()
+		self.save()

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Response
+from .models import Response, Responsem, Responsei
 from .models import Candidate
 
 class PostForm(forms.ModelForm):
@@ -14,3 +14,15 @@ class GetResponse(forms.ModelForm):
     class Meta:
         model = Response
         fields = ('free_response',)
+        
+class GetResponsem(forms.ModelForm):
+
+    class Meta:
+        model = Responsem
+        fields = ('responsem',)
+        
+class GetResponsei(forms.ModelForm):
+
+    class Meta:
+        model = Responsei
+        fields = ('responsei',)
