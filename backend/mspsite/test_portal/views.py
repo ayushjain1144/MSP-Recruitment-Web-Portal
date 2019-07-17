@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Candidate
+from .models import Candidate, Questionm, Questioni, Responsem, Responsei, QuizAnswer
 from django.contrib import auth
 from django.contrib import messages
 from django.core.exceptions import ValidationError
