@@ -8,8 +8,8 @@ urlpatterns = [
     path('question/<slug:id>/', views.question_list, name='question_list'),
     path('question/<slug:id>/<int:pk>/', views.question_list, name='question_list'),
     path('response_save/<int:pk>/<slug:id>/$', views.response_save, name='response_save'),
-    path('ques_detail/<int:pk>/',views.ques_detail,name='ques_detail'),
-    path('ques_detail2/<int:pk>/',views.ques_detail2,name='ques_detail2'),
+    path('ques_detail/<slug:id>/<int:pk>/',views.ques_detail,name='ques_detail'),
+    path('ques_detail2/<slug:id>/<int:pk>/',views.ques_detail2,name='ques_detail2'),
     path('round2', views.round2, name='round2'),
     path('proceed', views.proceed, name='proceed'),
 ]

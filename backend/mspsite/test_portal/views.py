@@ -5,9 +5,9 @@ from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from .forms import PostForm
-from .models import Question
-from .models import Response
-from .forms import GetResponse
+from .models import Question, Questioni, Questionm
+from .models import Response, Responsei, Responsem
+from .forms import GetResponse, GetResponsem, GetResponsei
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
@@ -162,6 +162,8 @@ def response_savei(request, pk, id = 'a'):
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
 	return redirect(ques_detail2, pk = pk, id = id)
+
+
 def ques_detail(request, pk, id = 'a'):
 	questions= Questionm.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
@@ -173,9 +175,19 @@ def ques_detail(request, pk, id = 'a'):
 		questions = paginator.page(pk)
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
-	new = Responsem.objects.get(user=user, question=Questionm.objects.get(pk = pk))
-	form = GetResponsem(initial={'responsem': new.responsem})
+
+
+
+	try:
+		user = Candidate.objects.get(username=id)
+		new = Responsem.objects.get(user=user, question=Questionm.objects.get(pk = pk))
+		form = GetResponsem(initial={'responsem': new.responsem})
+	except Responsem.DoesNotExist:
+		form = GetResponsem()
+
 	return render(request, 'test_portal/ques_detail.html',{'questions': questions, 'form':form, 'pksent': pk, 'id':id})
+
+
 def ques_detail2(request, pk):
 	questions= Questioni.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
@@ -191,12 +203,15 @@ def ques_detail2(request, pk):
 	new = Responsei.objects.get(user=user, question=Questioni.objects.get(pk = pk))
 	form = GetResponsei(initial={'responsei': new.responsei})
 	return render(request, 'test_portal/ques_detail2.html',{'questions': questions, 'form':form, 'pksent': pk, 'id':id})
+
 def round2(request):  
 	return render(request,'events/round2.html')
+
 def proceed(request):
 	ques = Questioni.objects.first()
 	context = {'ques': ques}  
 	return render(request,'test_portal/proceed.html',context)
+
 def instructions(request):
 	ques = Questionm.objects.first()
 	context = {'ques': ques}
