@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Candidate, Questionm, Questioni, Responsem, Responsei, QuizAnswer
+from .models import Candidate, Questionm, Questioni, Responsem, Responsei
 from django.contrib import auth
 from django.contrib import messages
 from django.core.exceptions import ValidationError
@@ -125,6 +125,43 @@ def response_save(request, pk, id = 'a'):
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
 	return redirect(question_list, pk = pk, id = id)
+
+def response_savem(request, pk, id = 'a'):
+	if request.method == 'POST':
+		try:
+			response = Responsem.objects.get(user=Candidate.objects.get(username=id), question=Questionm.objects.get(pk = pk))
+		except Responsem.DoesNotExist:
+			response = Responsem()
+		response_rec = GetResponsem(request.POST)
+		if response_rec.is_valid():
+			response.responsem = response_rec.cleaned_data['responsem']
+			response.question = Questionm.objects.get(pk = pk)
+			response.user = Candidate.objects.get(username=id)
+			response.save()
+			redirect('ques_detail', pk = pk, id = id)
+
+	else:
+		return HttpResponse('You are not supposed to be here! Go Back! Please!')
+
+	return redirect(ques_detail, pk = pk, id = id)
+def response_savei(request, pk, id = 'a'):
+	if request.method == 'POST':
+		try:
+			response = Responsei.objects.get(user=Candidate.objects.get(username=id), question=Questionm.objects.get(pk = pk))
+		except Responsei.DoesNotExist:
+			response = Responsei()
+		response_rec = GetResponsei(request.POST)
+		if response_rec.is_valid():
+			response.responsei = response_rec.cleaned_data['responsei']
+			response.question = Questioni.objects.get(pk = pk)
+			response.user = Candidate.objects.get(username=id)
+			response.save()
+			redirect('ques_detail2', pk = pk, id = id)
+
+	else:
+		return HttpResponse('You are not supposed to be here! Go Back! Please!')
+
+	return redirect(ques_detail2, pk = pk, id = id)
 def ques_detail(request, pk, id = 'a'):
 	questions= Questionm.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
@@ -136,8 +173,9 @@ def ques_detail(request, pk, id = 'a'):
 		questions = paginator.page(pk)
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
-
-	return render(request, 'test_portal/ques_detail.html',{'questions': questions, 'pksent': pk, 'id':id})
+	new = Responsem.objects.get(user=user, question=Questionm.objects.get(pk = pk))
+	form = GetResponsem(initial={'responsem': new.responsem})
+	return render(request, 'test_portal/ques_detail.html',{'questions': questions, 'form':form, 'pksent': pk, 'id':id})
 def ques_detail2(request, pk):
 	questions= Questioni.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
@@ -150,8 +188,9 @@ def ques_detail2(request, pk):
 		questions = paginator.page(pk)
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
-
-	return render(request, 'test_portal/ques_detail2.html',{'questions': questions, 'pksent': pk, 'id':id})
+	new = Responsei.objects.get(user=user, question=Questioni.objects.get(pk = pk))
+	form = GetResponsei(initial={'responsei': new.responsei})
+	return render(request, 'test_portal/ques_detail2.html',{'questions': questions, 'form':form, 'pksent': pk, 'id':id})
 def round2(request):  
 	return render(request,'events/round2.html')
 def proceed(request):
