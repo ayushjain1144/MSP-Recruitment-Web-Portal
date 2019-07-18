@@ -134,7 +134,10 @@ def response_savem(request, pk, id = 'a'):
 			response = Responsem()
 		response_rec = GetResponsem(request.POST)
 		if response_rec.is_valid():
-			response.responsem = response_rec.cleaned_data['responsem']
+			response.responsem1 = response_rec.cleaned_data['responsem']
+			response.responsem2 = response_rec.cleaned_data['responsem']
+			response.responsem3 = response_rec.cleaned_data['responsem']
+			response.responsem4 = response_rec.cleaned_data['responsem']
 			response.question = Questionm.objects.get(pk = pk)
 			response.user = Candidate.objects.get(username=id)
 			response.save()
