@@ -4,6 +4,8 @@
 <div class="round1">
 	<h1>ROUND-1 Integer-Type</h1>
 	</div>
+	<form action="{% url 'response_savei' pksent id %}" method="POST"
+              class="post-form" >{% csrf_token %}
 	<div class="question">
 		{% for question in questions %}
 			<h2>Q. {{ question.question }}</h2><br><br><br><br>
@@ -29,4 +31,5 @@
 			</p>
 		</div>
 	</div>
+</form>
 {% endblock %}

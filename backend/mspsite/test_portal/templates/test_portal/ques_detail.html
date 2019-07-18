@@ -4,6 +4,8 @@
 <div class="round1">
 	<h1>ROUND-1 MCQ</h1>
 	</div>
+	<form action="{% url 'response_savem' pksent id %}" method="POST"
+              class="post-form" >{% csrf_token %}
 	<div class="question">
 		{% for question in questions %}
 			<h2>Q. {{ question.question }}</h2><br><br><br><br>
@@ -11,6 +13,8 @@
 				<input type="checkbox" name="opt2">{{ question.opt2 }}<br><br>
 				<input type="checkbox" name="opt3">{{ question.opt3 }}<br><br>
 				<input type="checkbox" name="opt4">{{ question.opt4 }}<br><br></p>
+
+			<input type="submit" value="Save" class="btn btn-success" style="width: 100px; height: 50px;" />
 		{% endfor %}
 	</div>
 	<div class="pagination">
@@ -30,4 +34,5 @@
 			</p>
 		</div>
 	</div>
+</form>
 {% endblock %}

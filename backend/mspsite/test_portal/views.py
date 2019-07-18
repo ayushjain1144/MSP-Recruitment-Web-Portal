@@ -70,6 +70,8 @@ def question_list(request, pk = Question.objects.order_by("id").values_list('id'
 	questions= Question.objects.order_by("id").all()
 	paginator = Paginator(questions, 1)
 
+	value = Question.objects.order_by("id").values_list('id', flat=True)
+
 	page = pk-base_pk + 1
 
 	try:
@@ -88,8 +90,8 @@ def question_list(request, pk = Question.objects.order_by("id").values_list('id'
 		answer = ''
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
-	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id, 'response':answer})
 
+	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id, 'values' : value})
 
 def welcome(request):
 	return render(request,'test_portal/welcome.html')
@@ -136,7 +138,10 @@ def response_savem(request, pk, id = 'a'):
 			response = Responsem()
 		response_rec = GetResponsem(request.POST)
 		if response_rec.is_valid():
-			response.responsem = response_rec.cleaned_data['responsem']
+			response.responsem1 = response_rec.cleaned_data['responsem1']
+			response.responsem2 = response_rec.cleaned_data['responsem2']
+			response.responsem3 = response_rec.cleaned_data['responsem3']
+			response.responsem4 = response_rec.cleaned_data['responsem4']
 			response.question = Questionm.objects.get(pk = pk)
 			response.user = Candidate.objects.get(username=id)
 			response.save()
@@ -178,12 +183,10 @@ def ques_detail(request, pk, id = 'a'):
 	except EmptyPage:
 		questions = paginator.page(paginator.num_pages)
 
-
-
 	try:
 		user = Candidate.objects.get(username=id)
 		new = Responsem.objects.get(user=user, question=Questionm.objects.get(pk = pk))
-		form = GetResponsem(initial={'responsem': new.responsem})
+		form = GetResponsem(initial={'responsem1': new.responsem1,'responsem2': new.responsem2,'responsem3': new.responsem3,'responsem4': new.responsem4})
 	except Responsem.DoesNotExist:
 		form = GetResponsem()
 
