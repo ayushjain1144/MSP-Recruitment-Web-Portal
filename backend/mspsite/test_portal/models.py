@@ -63,16 +63,16 @@ class Responsem(models.Model):
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
 	question = models.ForeignKey("Questionm", on_delete=models.CASCADE,)
 
-	responsem1 = models.BooleanField()
-	responsem2 = models.BooleanField()
-	responsem3 = models.BooleanField()
-	responsem4 = models.BooleanField()
+	responsem1 = models.BooleanField(default=False)
+	responsem2 = models.BooleanField(default=False)
+	responsem3 = models.BooleanField(default=False)
+	responsem4 = models.BooleanField(default=False)
 
 	def submit(self):
 		self.save()
 
 	def __str__(self):
-		return self.responsem
+		return self.responsem1
 	
 class Questionm(models.Model):
 
