@@ -14,40 +14,33 @@
               class="post-form" >{% csrf_token %}
 
              <div class="Question">
-                {% for question in questions %}
 
                 <h2>Question : {{ question.question }}          (Marks : {{ question.marks }})</h2>
 
                 <p><label for="id_free_response">Answer:</label> <textarea name="free_response" placeholder="Answer Here" cols="40" rows="6" maxlength="2000" id="id_free_response">{{ response }}</textarea></p>
 
-
-                {% empty %}
-                    <p>There are no questions</p>
-
-                {% endfor %}
-
-            </div>
+             </div>
 
             <div class="pagination">
                 <div class="section-inner clearfix">
                     <p>
-                        {% if questions.has_previous %}
+                        {% if pksent > 1 %}
                             <input type="submit" name = "SavePrevious" value="Previous" class="btn btn-success" style="width: 100px; height: 50px;" />
                         {% endif %}
 
 
-                        {% if questions.has_next %}
+                        {% if  pksent  <  count  %}
                             <input type="submit" name = "SaveNext" value="Next" class="btn btn-success" style="width: 100px; height: 50px;" />
                         {% endif %}
 
                         <br>
 
-                        <span>Question {{ questions.number }} of {{ questions.paginator.num_pages }}</span>
+                        <span>Question {{ pksent }} of {{ count }}</span>
 
                         <br>
                         <br>
 
-                        {% if questions.has_next == False %}
+                        {% if pksent  ==  count %}
                             <input type="submit" name = "Finish" value="Finish Test" class="btn btn-success" style="width: 100px; height: 50px;" />
                         {% endif %}
                     </p>
@@ -55,12 +48,5 @@
                 </div>
              </div>
         </form>
-
-
-
-        <div class = "Logout">
-   <!--         <a href="{% url 'test_logout' %}">Logout</a> -->
-        </div>
-
 
 {% endblock %}

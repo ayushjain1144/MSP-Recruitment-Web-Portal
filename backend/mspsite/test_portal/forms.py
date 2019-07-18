@@ -19,7 +19,7 @@ class GetResponsem(forms.ModelForm):
 
     class Meta:
         model = Responsem
-        fields = ('responsem1, responsem2, responsem3, responsem4',)
+        fields = ('responsem1', 'responsem2', 'responsem3', 'responsem4',)
         
 class GetResponsei(forms.ModelForm):
 
