@@ -61,29 +61,17 @@ def register(request):
 	return render(request, 'test_portal/register.html', {'form': form})
 
 
-def question_list(request, pk = Question.objects.order_by("id").values_list('id', flat=True).first(), id = 'a'):
+def question_list(request, ques_no = 1, id = 'a'):
 	if not request.user.is_authenticated:
 		return redirect('test_login')
 
+	ques_count= Question.objects.order_by("ques_no").count()
 
-	base_pk = Question.objects.order_by("id").values_list('id', flat=True).first()
-	questions= Question.objects.order_by("id").all()
-	paginator = Paginator(questions, 1)
-
-	value = Question.objects.order_by("id").values_list('id', flat=True)
-
-	page = pk-base_pk + 1
-
-	try:
-		questions = paginator.page(page)
-	except PageNotAnInteger:
-		questions = paginator.page(1)
-	except EmptyPage:
-		questions = paginator.page(paginator.num_pages)
+	question = Question.objects.get(ques_no=ques_no)
 
 	try:
 		user = Candidate.objects.get(username=id)
-		new = Response.objects.get(user=user, question=Question.objects.get(pk = pk))
+		new = Response.objects.get(user=user, question=Question.objects.get(ques_no = ques_no))
 		form = GetResponse(initial={'free_response': new.free_response})
 		answer = new.free_response
 	except Response.DoesNotExist:
@@ -91,7 +79,7 @@ def question_list(request, pk = Question.objects.order_by("id").values_list('id'
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
 
-	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id, 'values' : value})
+	return render(request, 'test_portal/round2_home.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'response' : answer, 'count' : ques_count})
 
 def welcome(request):
 	return render(request,'test_portal/welcome.html')
@@ -100,35 +88,33 @@ def welcome(request):
 def response_save(request, pk, id = 'a'):
 	if request.method == 'POST':
 		try:
-			response = Response.objects.get(user=Candidate.objects.get(username=id), question=Question.objects.get(pk = pk))
+			response = Response.objects.get(user=Candidate.objects.get(username=id), question=Question.objects.get(ques_no = pk))
 		except Response.DoesNotExist:
 			response = Response()
 		response_rec = GetResponse(request.POST)
 		if response_rec.is_valid():
 			response.free_response = response_rec.cleaned_data['free_response']
-			response.question = Question.objects.get(pk = pk)
+			response.question = Question.objects.get(ques_no = pk)
 			response.user = Candidate.objects.get(username=id)
 			response.save()
 			if 'SavePrevious' in request.POST:
-				pkprev = Question.objects.filter(pk__lt = pk).order_by('-pk').values_list('id', flat=True).first()
-				pk = pkprev
-				redirect('question_list', pk = pk, id = id)
+				pk = pk - 1
+				return redirect('question_list', ques_no = pk, id = id)
 
 			elif 'SaveNext' in request.POST:
-				pknext = Question.objects.filter(pk__gt = pk).order_by('pk').values_list('id', flat=True).first()
-				pk = pknext
-				redirect('question_list', pk = pk, id = id)
+				pk = pk + 1
+				redirect('question_list', ques_no = pk, id = id)
 
 			elif 'Finish' in request.POST:
 				return redirect('test_logout')
 
 			else:
-				redirect('question_list', pk = pk, id = id)
+				redirect('question_list', ques_no = pk, id = id)
 
 	else:
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
-	return redirect(question_list, pk = pk, id = id)
+	return redirect(question_list, ques_no = pk, id = id)
 
 def response_savem(request, pk, id = 'a'):
 	if request.method == 'POST':
