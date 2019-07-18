@@ -85,11 +85,13 @@ def question_list(request, pk = Question.objects.order_by("id").values_list('id'
 		user = Candidate.objects.get(username=id)
 		new = Response.objects.get(user=user, question=Question.objects.get(pk = pk))
 		form = GetResponse(initial={'free_response': new.free_response})
+		answer = new.free_response
 	except Response.DoesNotExist:
+		answer = ''
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
-	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id, 'values' : value})
 
+	return render(request, 'test_portal/round2_home.html',{'questions': questions, 'form': form, 'pksent': pk, 'id':id, 'values' : value})
 
 def welcome(request):
 	return render(request,'test_portal/welcome.html')

@@ -18,7 +18,8 @@
 
                 <h2>Question : {{ question.question }}          (Marks : {{ question.marks }})</h2>
 
-                {{form.as_p}}
+                <p><label for="id_free_response">Answer:</label> <textarea name="free_response" placeholder="Answer Here" cols="40" rows="6" maxlength="2000" id="id_free_response">{{ response }}</textarea></p>
+
 
                 {% empty %}
                     <p>There are no questions</p>
@@ -53,7 +54,6 @@
 
                 </div>
              </div>
-s
         </form>
 
 
