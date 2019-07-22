@@ -39,7 +39,7 @@ def register(request):
 
 def login(request):
 	if request.user.is_authenticated:
-		return redirect(question_list, id = request.user.username)
+		return redirect(ques_detail_mcq, id = request.user.username)
 
 	if request.method == 'POST':
 		username = request.POST.get('username')
@@ -84,7 +84,7 @@ def ques_detail_mcq(request, ques_no = 1, id = 'a'):
 		res4 = False
 		form = GetResponseMCQ()
 
-	return render(request, 'test_portal/ques_detail.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id,
+	return render(request, 'test_portal/round1.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1),
 														   'response1' : res1,'response2' : res2,'response3' : res3, 'response4' : res4, 'count' : ques_count})
 
 def response_savem(request, pk, next, id = 'a'):
@@ -139,7 +139,7 @@ def question_list(request, ques_no = 1, id = 'a'):
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
 
-	return render(request, 'test_portal/round2_home.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'response' : answer, 'count' : ques_count})
+	return render(request, 'test_portal/round2.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'response' : answer, 'count' : ques_count})
 
 def response_save(request, pk, next, id = 'a',):
 	if request.method == 'POST':
@@ -171,16 +171,6 @@ def response_save(request, pk, next, id = 'a',):
 		return HttpResponse('You are not supposed to be here! Go Back! Please!')
 
 	return redirect(question_list, ques_no = next, id = id)
-
-
-
-def round2(request):  
-	return render(request,'events/round2.html')
-
-def proceed(request):
-	ques = Questioni.objects.first()
-	context = {'ques': ques}  
-	return render(request,'test_portal/proceed.html',context)
 
 def logout(request):
 	auth.logout(request)
