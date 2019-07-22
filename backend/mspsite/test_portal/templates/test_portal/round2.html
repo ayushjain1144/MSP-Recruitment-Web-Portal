@@ -1,1 +1,77 @@
-Round-2
+{% extends 'questions.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<form action="{% url 'response_save' pksent id pksent %}" method="POST">
+    {% csrf_token %}
+
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="nav container-fluid">
+            <div class="navbar-logo col-sm-5">
+                <img src="{% static '/images/msp-logo.png' %}">
+                <span>Microsoft Student Partners | BITS Pilani</span>
+            </div>
+            <div class="nav-items row col-sm-7">
+                <div class="nav-item col-sm-3" id="stage-heading"><p>ROUND 2</p></div>
+                <div class="col-sm-5"></div>
+                <div class="nav-item col-sm-4"><p><button type="submit" name="Finish" class="btn btn-success" id="finishBtn" onclick="btnClickDes()">Finish Test</button></p></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main container-fluid row">
+
+        <div class="ques-sel container col-sm-2">
+            <p>Progress</p>
+            <div id="button-set">
+                {% for i in n %}
+                <a onclick="progRedirectDes("{% url 'response_save' pksent id i %}")"><button type="button" class="btn btn-info">{{ i }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="content container col-sm-9">
+            <div class="row">
+                <div class="col-xs-1 nav-arrow left"><button type="submit" name="SavePrevious" onclick="btnClickDes()"><i class="fa fa-chevron-left"></i></button></div>
+                <div class="col-xs-10 qa">
+                    <div class="question">
+                        <span class="qnum-span">&nbsp;Question <span id="qnum">{{ pksent }}</span> of <span id="qnum-count">{{ count }}</span>&nbsp;</span>
+                        <span class="marks-span">&nbsp;Marks: <span id="marks">{{ question.marks }}</span>&nbsp;</span>
+                        <br>
+                        <span id="question-p">{{ question.question }}</span>
+                    </div>
+                    <div class="response">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment" name = "free_response" placeholder="Enter response here..." autofocus>{{ response }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 nav-arrow right"><button type="submit" name="SaveNext" onclick="btnClickDes()"><i class="fa fa-chevron-right"></i></button></div>
+            </div>
+        </div>
+
+        <div class="progress-info container-fluid">
+            <div class="container row col-sm-12">
+                <div class="container col-sm-3">
+                    <div class="progress-info-colors" style="background-color: #5bc0de;"></div>
+                    <span>Current</span>
+                </div>
+                <div class="container col-sm-3">
+                    <div class="progress-info-colors" style="background-color: #5cb85c;"></div>
+                    <span>Attempted</span>
+                </div>
+                <div class="container col-sm-3">
+                    <div class="progress-info-colors" style="background-color: #dc3545;"></div>
+                    <span>Not Attempted</span>
+                </div>
+                <div class="container col-sm-3">
+                    <div class="progress-info-colors" style="background-color: #fff;"></div>
+                    <span>Yet to Attempt</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+{% endblock %}
