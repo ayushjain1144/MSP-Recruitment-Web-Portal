@@ -4,3 +4,4 @@ backend/mspsite/newdjango/
 backend/mspsite/test_portal/__pycache__/
 backend/mspsite/test_portal/migrations/__pycache__/
 backend/mspsite/test_portal/migrations/
+.idea/workspace.xml

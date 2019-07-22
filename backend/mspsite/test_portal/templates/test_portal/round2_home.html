@@ -10,7 +10,7 @@
 
 
 
-        <form action="{% url 'response_save' pksent id %}" method="POST"
+        <form action="{% url 'response_save' pksent id pksent %}" method="POST"
               class="post-form" >{% csrf_token %}
 
              <div class="Question">
