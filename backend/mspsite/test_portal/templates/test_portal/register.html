@@ -35,13 +35,13 @@
         <form method = "POST" style="padding: 10px" id="register" >
             {% csrf_token %}
             <div class="form-group">
-                <label for="firstname">First Name</label>
-                <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Tom" pattern="[a-zA-Z]{1,25}" maxlength="25" required>
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Tom" pattern="[a-zA-Z]{1,25}" maxlength="25" required>
             </div>
 
             <div class="form-group">
-                <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" name="lastname"  id="lastname" placeholder="Cruise" pattern="[a-zA-Z]{1,25}" maxlength="25"
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" name="lastName"  id="lastName" placeholder="Cruise" pattern="[a-zA-Z]{1,25}" maxlength="25"
                     required>
             </div>
 

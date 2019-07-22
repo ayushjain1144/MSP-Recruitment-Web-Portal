@@ -2,12 +2,10 @@ from django.contrib import admin
 
 
 # Register your models here.
-from .models import Candidate, Question, Response, Questionm, Questioni, Responsem, Responsei
+from .models import Candidate, QuestionMCQ, ResponseMCQ, QuestionSub, ResponseSub
 
-admin.site.register(Questionm)
-admin.site.register(Questioni)
-admin.site.register(Question)
+admin.site.register(QuestionMCQ)
+admin.site.register(QuestionSub)
 admin.site.register(Candidate)
-admin.site.register(Response)
-admin.site.register(Responsem)
-admin.site.register(Responsei)
+admin.site.register(ResponseSub)
+admin.site.register(ResponseMCQ)

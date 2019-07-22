@@ -1,28 +1,22 @@
 from django import forms
-from .models import Response, Responsem, Responsei
+from .models import ResponseSub, ResponseMCQ
 from .models import Candidate
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Candidate
-        fields = ('firstname', 'lastname', 'username', 'password', 'email', 'bitsid', 'contact', 'description', )
-
+        fields = ('firstName', 'lastName', 'username', 'password', 'email', 'bitsid', 'contact', 'description', )
 
 class GetResponse(forms.ModelForm):
 
     class Meta:
-        model = Response
+        model = ResponseSub
         fields = ('free_response',)
         
-class GetResponsem(forms.ModelForm):
+class GetResponseMCQ(forms.ModelForm):
 
     class Meta:
-        model = Responsem
-        fields = ('responsem1', 'responsem2', 'responsem3', 'responsem4',)
+        model = ResponseMCQ
+        fields = ('response1', 'response2', 'response3', 'response4',)
         
-class GetResponsei(forms.ModelForm):
-
-    class Meta:
-        model = Responsei
-        fields = ('responsei',)

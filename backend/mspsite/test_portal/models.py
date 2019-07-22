@@ -5,9 +5,17 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
+
+class Exam(models.Model):
+	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
+	duration = models.IntegerField(default = 60)
+	start_time = models.DateTimeField()
+
+
 class Candidate(models.Model):
-	firstname = models.CharField(max_length = 25, default = '')
-	lastname = models.CharField(max_length = 25, default = '')
+	firstName = models.CharField(max_length = 25, default = '')
+	lastName = models.CharField(max_length = 25, default = '')
 	username = models.CharField(max_length = 25, default = '', unique = True)
 	password = models.CharField(max_length =25, default = '')
 	email = models.URLField(default = '')
@@ -24,7 +32,7 @@ class Candidate(models.Model):
 	def __str__(self):
 		return self.bitsid
 	
-class Question(models.Model):
+class QuestionSub(models.Model):
 
 	question = models.CharField(max_length=256, default = '')
 	marks = models.IntegerField(default = 10)
@@ -32,11 +40,24 @@ class Question(models.Model):
 
 	def __str__(self):
 		return self.question
-	
-class Response(models.Model):
+
+class QuestionMCQ(models.Model):
+
+	question = models.CharField(max_length=256, default = '')
+	opt1 = models.CharField(default='', max_length=200)
+	opt2 = models.CharField(default='', max_length=200)
+	opt3 = models.CharField(default='', max_length=200)
+	opt4 = models.CharField(default='', max_length=200)
+	marks = models.IntegerField(default = 10)
+	ques_no = models.IntegerField(null=True)
+
+	def __str__(self):
+		return self.question
+
+class ResponseSub(models.Model):
 
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
-	question = models.ForeignKey("Question", on_delete=models.CASCADE,)
+	question = models.ForeignKey("QuestionSub", on_delete=models.CASCADE,)
 
 	free_response = models.TextField(max_length = 2000, blank = True)
 
@@ -45,59 +66,20 @@ class Response(models.Model):
 
 	def __str__(self):
 		return self.free_response
-class Responsei(models.Model):
+	
+class ResponseMCQ(models.Model):
 
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
-	question = models.ForeignKey("Questioni", on_delete=models.CASCADE,)
+	question = models.ForeignKey("QuestionMCQ", on_delete=models.CASCADE,)
 
-	responsei = models.IntegerField(default = 10)
+	response1 = models.BooleanField(default=False)
+	response2 = models.BooleanField(default=False)
+	response3 = models.BooleanField(default=False)
+	response4 = models.BooleanField(default=False)
 
 	def submit(self):
 		self.save()
 
 	def __str__(self):
-		return self.responsei
+		return str(self.response1)
 	
-class Responsem(models.Model):
-
-	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
-	question = models.ForeignKey("Questionm", on_delete=models.CASCADE,)
-
-	responsem1 = models.BooleanField(default=False)
-	responsem2 = models.BooleanField(default=False)
-	responsem3 = models.BooleanField(default=False)
-	responsem4 = models.BooleanField(default=False)
-
-	def submit(self):
-		self.save()
-
-	def __str__(self):
-		return self.responsem1
-	
-class Questionm(models.Model):
-
-	question = models.TextField()
-	opt1 = models.CharField(default='', max_length=200)
-	opt2 = models.CharField(default='', max_length=200)
-	opt3 = models.CharField(default='', max_length=200)
-	opt4 = models.CharField(default='', max_length=200)
-	marks = models.IntegerField(default = 10)
-
-	def __str__(self):
-		return self.question
-
-	def publish(self):
-		self.published_date = timezone.now()
-		self.save()
-
-class Questioni(models.Model):
-
-	question = models.TextField()
-	marks = models.IntegerField(default = 10)
-
-	def __str__(self):
-		return self.question
-
-	def publish(self):
-		self.published_date = timezone.now()
-		self.save()
