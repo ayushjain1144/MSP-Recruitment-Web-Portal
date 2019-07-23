@@ -5,6 +5,7 @@
 <form action="{% url 'response_save' pksent id i %}" method="POST">
     {% csrf_token %}
 
+    <input type="hidden" id="hidden_round" value="2">
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="nav container-fluid">
             <div class="navbar-logo col-sm-5">
