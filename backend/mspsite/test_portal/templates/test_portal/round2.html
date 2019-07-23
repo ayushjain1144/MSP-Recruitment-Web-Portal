@@ -25,7 +25,7 @@
             <p>Progress</p>
             <div id="button-set">
                 {% for i in n %}
-                <a onclick="progRedirectDes("{% url 'response_save' pksent id i %}")"><button type="button" class="btn btn-info">{{ i }}</button></a>
+                <a onclick="progRedirectDes('{% url 'response_save' pksent id i %}')"><button type="button" class="btn btn-info">{{ i }}</button></a>
                 {% endfor %}
             </div>
         </div>
