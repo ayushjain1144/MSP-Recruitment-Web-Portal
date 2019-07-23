@@ -26,9 +26,7 @@
             <p>Progress</p>
             <div id="button-set">
                 {% for i in n %}
-
-                <a onclick="progRedirectMCQ('{% url 'ques_detail_mcq' id i %}')"><button type="submit" class="btn btn-info">{{ i }}</button></a>
-
+                <button type="submit" name="progress-number" value="{{ i }}" class="btn btn-info">{{ i }}</button>
                 {% endfor %}
             </div>
         </div>
