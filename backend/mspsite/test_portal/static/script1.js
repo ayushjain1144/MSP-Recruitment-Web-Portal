@@ -113,10 +113,10 @@ function btnClickMCQ() {
 
     var btnSelected = false;
     
-    var b1 = (document.getElementsById("id_response1").checked == "1");
-    var b2 = (document.getElementsById("id_response2").checked == "1");
-    var b3 = (document.getElementsById("id_response3").checked == "1");
-    var b4 = (document.getElementsById("id_response4").checked == "1");
+    var b1 = (document.getElementById("id_response1").checked == "1");
+    var b2 = (document.getElementById("id_response2").checked == "1");
+    var b3 = (document.getElementById("id_response3").checked == "1");
+    var b4 = (document.getElementById("id_response4").checked == "1");
     if (b1 || b2 || b3 || b4) {
         btnSelected = true;
     }
