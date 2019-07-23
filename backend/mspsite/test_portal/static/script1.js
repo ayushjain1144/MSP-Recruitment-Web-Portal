@@ -60,6 +60,14 @@ function proceedRound2() {
     return conf;
 }
 
+function finishTest() {
+    var conf = confirm("Are you sure you want to finish the test? You cannot return back!");
+    if (conf == true) {        
+        btnClickDes();
+    }
+    return conf; 
+}
+
 function btnClickDes() {
     var qnum = document.getElementById("qnum").innerHTML;
     
