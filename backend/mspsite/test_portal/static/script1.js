@@ -80,7 +80,7 @@ function btnClickDes() {
 
     var element = document.getElementById("button-set").getElementsByTagName("button");
     element[qnum-1].className = "btn ";
-    if (textarea.value == "") {
+    if (textarea.value.trim() == "") {
         element[qnum-1].className += btnMapping[2];
         btnStatus[qnum-1] = 2;
     }
@@ -93,7 +93,7 @@ function btnClickDes() {
     window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
 }
 
-function progRedirectDes(link) {
+function progRedirectMCQ(link) {
     btnClickMCQ();
     window.location.href = link;
 }
