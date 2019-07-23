@@ -60,11 +60,6 @@ function proceedRound2() {
     return conf;
 }
 
-function progRedirectDes(link) {
-    btnClickDes();
-    window.location.href = link;
-}
-
 function btnClickDes() {
     var qnum = document.getElementById("qnum").innerHTML;
     
@@ -92,11 +87,6 @@ function btnClickDes() {
 
     window.sessionStorage.setItem("btnStatus_2", JSON.stringify(btnStatus));
     window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
-}
-
-function progRedirectMCQ(link) {
-    btnClickMCQ();
-    window.location.href = link;
 }
 
 function btnClickMCQ() {
