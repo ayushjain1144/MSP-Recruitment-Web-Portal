@@ -57,6 +57,7 @@ function proceedRound2() {
         btnClickMCQ();
         window.sessionStorage.setItem("round", "2");
     }
+    return conf;
 }
 
 function progRedirectDes(link) {

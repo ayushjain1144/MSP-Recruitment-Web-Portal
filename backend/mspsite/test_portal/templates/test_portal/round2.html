@@ -25,7 +25,9 @@
             <p>Progress</p>
             <div id="button-set">
                 {% for i in n %}
+
                 <a onclick="progRedirectDes('{% url 'question_list' id i %}')"><button type="button" class="btn btn-info" >{{ i }}</button></a>
+                
                 {% endfor %}
             </div>
         </div>
