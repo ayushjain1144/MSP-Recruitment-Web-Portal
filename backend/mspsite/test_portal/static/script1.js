@@ -60,9 +60,12 @@ function proceedRound2() {
     return conf;
 }
 
-function progRedirectDes(link) {
-    btnClickDes();
-    window.location.href = link;
+function finishTest() {
+    var conf = confirm("Are you sure you want to finish the test? You cannot return back!");
+    if (conf == true) {        
+        btnClickDes();
+    }
+    return conf; 
 }
 
 function btnClickDes() {
@@ -94,11 +97,6 @@ function btnClickDes() {
     window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
 }
 
-function progRedirectMCQ(link) {
-    btnClickMCQ();
-    window.location.href = link;
-}
-
 function btnClickMCQ() {
     var qnum = document.getElementById("qnum").innerHTML;
     
@@ -114,10 +112,10 @@ function btnClickMCQ() {
 
     var btnSelected = false;
     
-    var b1 = (document.getElementById("id_response1").checked == "1");
-    var b2 = (document.getElementById("id_response2").checked == "1");
-    var b3 = (document.getElementById("id_response3").checked == "1");
-    var b4 = (document.getElementById("id_response4").checked == "1");
+    var b1 = (document.getElementById("id_response1").checked == true);
+    var b2 = (document.getElementById("id_response2").checked == true);
+    var b3 = (document.getElementById("id_response3").checked == true);
+    var b4 = (document.getElementById("id_response4").checked == true);
     if (b1 || b2 || b3 || b4) {
         btnSelected = true;
     }

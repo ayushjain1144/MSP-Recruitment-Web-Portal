@@ -114,6 +114,7 @@ def response_savem(request, pk, next, id = 'a'):
 				return redirect(question_list, id = id)
 
 			else:
+				next = int(request.POST['progress-number'])
 				return redirect('ques_detail_mcq', ques_no = next, id = id)
 
 	else:
@@ -165,6 +166,7 @@ def response_save(request, pk, next, id = 'a',):
 				return redirect('test_logout')
 
 			else:
+				next = int(request.POST['progress-number'])
 				return redirect('question_list', ques_no = next, id = id)
 
 	else:
