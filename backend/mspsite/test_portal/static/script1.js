@@ -2,7 +2,7 @@ function loadFunction() {
     var qnum = document.getElementById("qnum").innerHTML;
     var count_q = document.getElementById("qnum-count").innerHTML;
     var round = "1";
-
+           
     if (window.sessionStorage.getItem("round") === null) {
         window.sessionStorage.setItem("count_1", count_q);
         window.sessionStorage.setItem("round", round);
@@ -12,6 +12,10 @@ function loadFunction() {
     }
 
     round = window.sessionStorage.getItem("round");
+    
+    if (document.getElementById("hidden_round").value != round) {
+        documents.getElementsByName("Finish")[0].click();
+    }
     
     if (qnum <= 1) {
         document.getElementsByClassName("nav-arrow")[0].getElementsByTagName("button")[0].disabled = true;
@@ -51,19 +55,36 @@ function loadFunction() {
 
 }
 
-function proceedRound2() {
-    var conf = confirm("Are you sure you want to proceed to Round 2? You cannot return to Round 1!");
-    if (conf == true) {        
-        btnClickMCQ();
-        window.sessionStorage.setItem("round", "2");
+function proceedRound2() {    
+    var conf;
+    round = window.sessionStorage.getItem("round");    
+    if (document.getElementById("hidden_round").value != round) {
+        conf = true;
+        alert("You have already completed Round 1!");
+    }
+    else {
+        conf = confirm("Are you sure you want to proceed to Round 2? You cannot return to Round 1!");
+        if (conf == true) {        
+            btnClickMCQ();
+            window.sessionStorage.setItem("round", "2");
+        }
     }
     return conf;
 }
 
 function finishTest() {
-    var conf = confirm("Are you sure you want to finish the test? You cannot return back!");
-    if (conf == true) {        
-        btnClickDes();
+    var conf;
+    round = window.sessionStorage.getItem("round");    
+    if (document.getElementById("hidden_round").value != round) {
+        conf = true;
+        alert("You have already completed the test!");
+    }
+    else {
+        conf = confirm("Are you sure you want to finish the test? You cannot return back!");
+        if (conf == true) {        
+            btnClickDes();
+            window.sessionStorage.setItem("round", "3");
+        }
     }
     return conf; 
 }
