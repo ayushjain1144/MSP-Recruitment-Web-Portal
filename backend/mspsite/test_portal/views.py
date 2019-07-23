@@ -139,7 +139,7 @@ def question_list(request, ques_no = 1, id = 'a'):
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
 
-	return render(request, 'test_portal/round2.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'response' : answer, 'count' : ques_count})
+	return render(request, 'test_portal/round2.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1), 'i' : 1, 'response' : answer, 'count' : ques_count})
 
 def response_save(request, pk, next, id = 'a',):
 	if request.method == 'POST':

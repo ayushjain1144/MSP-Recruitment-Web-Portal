@@ -76,7 +76,7 @@ nav {
     margin: 10px 1vw;
     padding: 10px;
     height: 100%;
-    background-color: rgba(204, 204, 204, 0.6);
+    background-color: rgba(204, 204, 204, 0.7);
     border-radius: 10px;
 }
 
@@ -141,7 +141,7 @@ textarea {
     margin: 10px 1vw;
     padding: 10px;
     height: 100%;
-    background-color: rgba(204, 204, 204, 0.6);
+    background-color: rgba(204, 204, 204, 0.7);
     border-radius: 10px;
 }
 
@@ -156,7 +156,7 @@ textarea {
 }
 
 .progress-info > div {    
-    background-color: rgba(204, 204, 204, 0.6);
+    background-color: rgba(204, 204, 204, 0.7);
     border-radius: 10px;
     margin: 5vh 0;
     padding: 10px 20px;
