@@ -14,7 +14,7 @@ function loadFunction() {
     round = window.sessionStorage.getItem("round");
     
     if (document.getElementById("hidden_round").value != round) {
-        documents.getElementsByName("Finish")[0].click();
+        document.getElementsByName("Finish")[0].click();
     }
     
     if (qnum <= 1) {
