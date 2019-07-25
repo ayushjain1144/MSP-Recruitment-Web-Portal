@@ -7,5 +7,11 @@ from .models import Candidate, QuestionMCQ, ResponseMCQ, QuestionSub, ResponseSu
 admin.site.register(QuestionMCQ)
 admin.site.register(QuestionSub)
 admin.site.register(Candidate)
-admin.site.register(ResponseSub)
 admin.site.register(ResponseMCQ)
+
+
+
+
+@admin.register(ResponseSub)
+class ResponseSubAdmin(admin.ModelAdmin):
+    list_display=['bitsid','quesno','free_response','marks']
