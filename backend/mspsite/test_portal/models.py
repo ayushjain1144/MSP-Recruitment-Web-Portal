@@ -61,11 +61,19 @@ class ResponseSub(models.Model):
 
 	free_response = models.TextField(max_length = 2000, blank = True)
 
+	marks = models.IntegerField(default = 0, editable = True)
+
 	def submit(self):
 		self.save()
 
 	def __str__(self):
 		return self.free_response
+
+	def bitsid(self):
+		return self.user.bitsid
+
+	def quesno(self):
+		return self.question.ques_no
 	
 class ResponseMCQ(models.Model):
 
