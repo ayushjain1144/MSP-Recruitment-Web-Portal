@@ -1,0 +1,222 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../backend/mspsite/test_portal/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_responsesub_marks.py	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	1;"	kind:file	line:1
+ALLOWED_HOSTS	../backend/mspsite/mspsite/settings.py	/^ALLOWED_HOSTS = ['a509830d.ngrok.io','*','127.0.0.1',]$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../backend/mspsite/mspsite/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:93
+BASE_DIR	../backend/mspsite/mspsite/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+Candidate	../backend/mspsite/test_portal/models.py	/^class Candidate(models.Model):$/;"	kind:class	line:16
+DATABASES	../backend/mspsite/mspsite/settings.py	/^DATABASES = {$/;"	kind:variable	line:77
+DEBUG	../backend/mspsite/mspsite/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+ENABLE_USER_SITE	../msp_portal/lib/python3.6/site.py	/^ENABLE_USER_SITE = None$/;"	kind:variable	line:82
+Exam	../backend/mspsite/test_portal/models.py	/^class Exam(models.Model):$/;"	kind:class	line:10
+GetResponse	../backend/mspsite/test_portal/forms.py	/^class GetResponse(forms.ModelForm):$/;"	kind:class	line:11
+GetResponseMCQ	../backend/mspsite/test_portal/forms.py	/^class GetResponseMCQ(forms.ModelForm):$/;"	kind:class	line:17
+INSTALLED_APPS	../backend/mspsite/mspsite/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+IS_JYTHON	../msp_portal/bin/activate_this.py	/^IS_JYTHON = sys.platform.startswith("java")$/;"	kind:variable	line:27
+IS_PYPY	../msp_portal/bin/activate_this.py	/^IS_PYPY = hasattr(sys, "pypy_version_info")$/;"	kind:variable	line:26
+LANGUAGE_CODE	../backend/mspsite/mspsite/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:112
+MAXLINES	../msp_portal/lib/python3.6/site.py	/^    MAXLINES = 23$/;"	kind:variable	line:399
+MIDDLEWARE	../backend/mspsite/mspsite/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:43
+Meta	../backend/mspsite/test_portal/forms.py	/^    class Meta:$/;"	kind:class	line:13
+Meta	../backend/mspsite/test_portal/forms.py	/^    class Meta:$/;"	kind:class	line:19
+Meta	../backend/mspsite/test_portal/forms.py	/^    class Meta:$/;"	kind:class	line:7
+Migration	../backend/mspsite/test_portal/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:7
+Migration	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:6
+PREFIXES	../msp_portal/lib/python3.6/site.py	/^PREFIXES = [sys.prefix, sys.exec_prefix]$/;"	kind:variable	line:79
+PostForm	../backend/mspsite/test_portal/forms.py	/^class PostForm(forms.ModelForm):$/;"	kind:class	line:5
+QuestionMCQ	../backend/mspsite/test_portal/models.py	/^class QuestionMCQ(models.Model):$/;"	kind:class	line:44
+QuestionSub	../backend/mspsite/test_portal/models.py	/^class QuestionSub(models.Model):$/;"	kind:class	line:35
+Quitter	../msp_portal/lib/python3.6/site.py	/^    class Quitter(object):$/;"	kind:class	line:375
+ROOT_URLCONF	../backend/mspsite/mspsite/settings.py	/^ROOT_URLCONF = 'mspsite.urls'$/;"	kind:variable	line:53
+ResponseMCQ	../backend/mspsite/test_portal/models.py	/^class ResponseMCQ(models.Model):$/;"	kind:class	line:78
+ResponseSub	../backend/mspsite/test_portal/models.py	/^class ResponseSub(models.Model):$/;"	kind:class	line:57
+ResponseSubAdmin	../backend/mspsite/test_portal/admin.py	/^class ResponseSubAdmin(admin.ModelAdmin):$/;"	kind:class	line:16
+SECRET_KEY	../backend/mspsite/mspsite/settings.py	/^SECRET_KEY = 'u_fah((mqyk$8p$j7+01j(dd5$y%q--fg9ax02fsryjfbmbfhx'$/;"	kind:variable	line:23
+STATIC_URL	../backend/mspsite/mspsite/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:126
+TEMPLATES	../backend/mspsite/mspsite/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:55
+TIME_ZONE	../backend/mspsite/mspsite/settings.py	/^TIME_ZONE = 'Asia\/Kolkata'$/;"	kind:variable	line:114
+TestPortalConfig	../backend/mspsite/test_portal/apps.py	/^class TestPortalConfig(AppConfig):$/;"	kind:class	line:4
+USER_BASE	../msp_portal/lib/python3.6/site.py	/^USER_BASE = None$/;"	kind:variable	line:85
+USER_SITE	../msp_portal/lib/python3.6/site.py	/^USER_SITE = None$/;"	kind:variable	line:84
+USE_I18N	../backend/mspsite/mspsite/settings.py	/^USE_I18N = True$/;"	kind:variable	line:116
+USE_L10N	../backend/mspsite/mspsite/settings.py	/^USE_L10N = True$/;"	kind:variable	line:118
+USE_TZ	../backend/mspsite/mspsite/settings.py	/^USE_TZ = True$/;"	kind:variable	line:120
+WSGI_APPLICATION	../backend/mspsite/mspsite/settings.py	/^WSGI_APPLICATION = 'mspsite.wsgi.application'$/;"	kind:variable	line:71
+_Helper	../msp_portal/lib/python3.6/site.py	/^class _Helper(object):$/;"	kind:class	line:481
+_Printer	../msp_portal/lib/python3.6/site.py	/^class _Printer(object):$/;"	kind:class	line:395
+__call__	../msp_portal/lib/python3.6/site.py	/^        def __call__(self, code=None):$/;"	kind:member	line:382
+__call__	../msp_portal/lib/python3.6/site.py	/^    def __call__(self):$/;"	kind:member	line:436
+__call__	../msp_portal/lib/python3.6/site.py	/^    def __call__(self, *args, **kwds):$/;"	kind:member	line:490
+__init__	../msp_portal/lib/python3.6/site.py	/^        def __init__(self, name):$/;"	kind:member	line:376
+__init__	../msp_portal/lib/python3.6/site.py	/^    def __init__(self, name, data, files=(), dirs=()):$/;"	kind:member	line:401
+__init__.py	../backend/mspsite/mspsite/__init__.py	1;"	kind:file	line:1
+__init__.py	../backend/mspsite/test_portal/__init__.py	1;"	kind:file	line:1
+__init__.py	../backend/mspsite/test_portal/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../msp_portal/lib/python3.6/distutils/__init__.py	1;"	kind:file	line:1
+__repr__	../msp_portal/lib/python3.6/site.py	/^        def __repr__(self):$/;"	kind:member	line:379
+__repr__	../msp_portal/lib/python3.6/site.py	/^    def __repr__(self):$/;"	kind:member	line:429
+__repr__	../msp_portal/lib/python3.6/site.py	/^    def __repr__(self):$/;"	kind:member	line:487
+__revision__	../msp_portal/lib/python3.6/distutils/__init__.py	/^        __revision__ = real_distutils.__revision__$/;"	kind:variable	line:39
+__setup	../msp_portal/lib/python3.6/site.py	/^    def __setup(self):$/;"	kind:member	line:408
+__str__	../backend/mspsite/test_portal/models.py	/^	def __str__(self):$/;"	kind:member	line:32
+__str__	../backend/mspsite/test_portal/models.py	/^	def __str__(self):$/;"	kind:member	line:41
+__str__	../backend/mspsite/test_portal/models.py	/^	def __str__(self):$/;"	kind:member	line:54
+__str__	../backend/mspsite/test_portal/models.py	/^	def __str__(self):$/;"	kind:member	line:69
+__str__	../backend/mspsite/test_portal/models.py	/^	def __str__(self):$/;"	kind:member	line:91
+__version__	../msp_portal/lib/python3.6/distutils/__init__.py	/^    __version__ = real_distutils.__version__$/;"	kind:variable	line:42
+_init_pathinfo	../msp_portal/lib/python3.6/site.py	/^def _init_pathinfo():$/;"	kind:function	line:139
+_is_64bit	../msp_portal/lib/python3.6/site.py	/^_is_64bit = (getattr(sys, "maxsize", None) or getattr(sys, "maxint")) > 2 ** 32$/;"	kind:variable	line:87
+_is_pypy	../msp_portal/lib/python3.6/site.py	/^_is_pypy = hasattr(sys, "pypy_version_info")$/;"	kind:variable	line:88
+_script	../msp_portal/lib/python3.6/site.py	/^def _script():$/;"	kind:function	line:764
+abs__file__	../msp_portal/lib/python3.6/site.py	/^def abs__file__():$/;"	kind:function	line:97
+activate_this.py	../msp_portal/bin/activate_this.py	1;"	kind:file	line:1
+addbuilddir	../msp_portal/lib/python3.6/site.py	/^def addbuilddir():$/;"	kind:function	line:127
+addpackage	../msp_portal/lib/python3.6/site.py	/^def addpackage(sitedir, name, known_paths):$/;"	kind:function	line:152
+addsitedir	../msp_portal/lib/python3.6/site.py	/^def addsitedir(sitedir, known_paths=None):$/;"	kind:function	line:184
+addsitepackages	../msp_portal/lib/python3.6/site.py	/^def addsitepackages(known_paths, sys_prefix=sys.prefix, exec_prefix=sys.exec_prefix):$/;"	kind:function	line:208
+addusersitepackages	../msp_portal/lib/python3.6/site.py	/^def addusersitepackages(known_paths):$/;"	kind:function	line:300
+admin.py	../backend/mspsite/test_portal/admin.py	1;"	kind:file	line:1
+aliasmbcs	../msp_portal/lib/python3.6/site.py	/^def aliasmbcs():$/;"	kind:function	line:500
+application	../backend/mspsite/mspsite/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../backend/mspsite/test_portal/apps.py	1;"	kind:file	line:1
+base	../msp_portal/bin/activate_this.py	/^base = os.path.dirname(bin_dir)$/;"	kind:variable	line:20
+basestring	../msp_portal/lib/python3.6/distutils/__init__.py	/^    basestring = str$/;"	kind:variable	line:49
+bin_dir	../msp_portal/bin/activate_this.py	/^bin_dir = os.path.dirname(os.path.abspath(__file__))$/;"	kind:variable	line:17
+bitsid	../backend/mspsite/test_portal/models.py	/^	bitsid = models.CharField(max_length = 20, unique = True)$/;"	kind:variable	line:22
+bitsid	../backend/mspsite/test_portal/models.py	/^	def bitsid(self):$/;"	kind:member	line:72
+build_ext	../msp_portal/lib/python3.6/distutils/__init__.py	/^    class build_ext(old_build_ext):$/;"	kind:class	line:57
+check_enableusersite	../msp_portal/lib/python3.6/site.py	/^def check_enableusersite():$/;"	kind:function	line:275
+contact	../backend/mspsite/test_portal/models.py	/^	contact = models.CharField(max_length = 10, default = '')$/;"	kind:variable	line:23
+dependencies	../backend/mspsite/test_portal/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:11
+dependencies	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^    dependencies = [$/;"	kind:variable	line:8
+description	../backend/mspsite/test_portal/models.py	/^	description = models.CharField(max_length = 1000, default = '')$/;"	kind:variable	line:24
+dirname	../msp_portal/lib/python3.6/distutils/__init__.py	/^dirname = os.path.dirname$/;"	kind:variable	line:10
+distutils_path	../msp_portal/lib/python3.6/distutils/__init__.py	/^        distutils_path = os.path.join(distutils_path, "__init__.py")$/;"	kind:variable	line:24
+distutils_path	../msp_portal/lib/python3.6/distutils/__init__.py	/^distutils_path = os.path.join(os.path.dirname(opcode.__file__), "distutils")$/;"	kind:variable	line:12
+django-admin.py	../backend/mspsite/newdjango/bin/django-admin.py	1;"	kind:file	line:1
+django-admin.py	../msp_portal/bin/django-admin.py	1;"	kind:file	line:1
+duration	../backend/mspsite/test_portal/models.py	/^	duration = models.IntegerField(default = 60)$/;"	kind:variable	line:12
+email	../backend/mspsite/test_portal/models.py	/^	email = models.URLField(default = '')$/;"	kind:variable	line:21
+enablerlcompleter	../msp_portal/lib/python3.6/site.py	/^def enablerlcompleter():$/;"	kind:function	line:648
+execsitecustomize	../msp_portal/lib/python3.6/site.py	/^def execsitecustomize():$/;"	kind:function	line:539
+execusercustomize	../msp_portal/lib/python3.6/site.py	/^def execusercustomize():$/;"	kind:function	line:640
+exists	../msp_portal/lib/python3.6/site.py	/^        def exists(path):$/;"	kind:function	line:786
+field	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^            field=models.IntegerField(default=0),$/;"	kind:variable	line:16
+fields	../backend/mspsite/test_portal/forms.py	/^        fields = ('firstName', 'lastName', 'username', 'password', 'email', 'bitsid', 'contact', 'description', )$/;"	kind:variable	line:9
+fields	../backend/mspsite/test_portal/forms.py	/^        fields = ('free_response',)$/;"	kind:variable	line:15
+fields	../backend/mspsite/test_portal/forms.py	/^        fields = ('response1', 'response2', 'response3', 'response4',)$/;"	kind:variable	line:21
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:17
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:31
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:44
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:53
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:62
+fields	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:74
+finalize_options	../msp_portal/lib/python3.6/distutils/__init__.py	/^        def finalize_options(self):$/;"	kind:member	line:58
+find_config_files	../msp_portal/lib/python3.6/distutils/__init__.py	/^def find_config_files(self):$/;"	kind:function	line:76
+firstName	../backend/mspsite/test_portal/models.py	/^	firstName = models.CharField(max_length = 25, default = '')$/;"	kind:variable	line:17
+force_global_eggs_after_local_site_packages	../msp_portal/lib/python3.6/site.py	/^def force_global_eggs_after_local_site_packages():$/;"	kind:function	line:619
+forms.py	../backend/mspsite/test_portal/forms.py	1;"	kind:file	line:1
+free_response	../backend/mspsite/test_portal/models.py	/^	free_response = models.TextField(max_length = 2000, blank = True)$/;"	kind:variable	line:62
+import_builtin_stuff	../msp_portal/lib/python3.6/site.py	/^    def import_builtin_stuff():$/;"	kind:function	line:710
+initial	../backend/mspsite/test_portal/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:9
+instructions	../backend/mspsite/test_portal/views.py	/^def instructions(request):$/;"	kind:function	line:59
+joinuser	../msp_portal/lib/python3.6/site.py	/^    def joinuser(*args):$/;"	kind:function	line:315
+lastName	../backend/mspsite/test_portal/models.py	/^	lastName = models.CharField(max_length = 25, default = '')$/;"	kind:variable	line:18
+list_display	../backend/mspsite/test_portal/admin.py	/^    list_display=['bitsid','quesno','free_response','marks']$/;"	kind:variable	line:17
+loader	../msp_portal/lib/python3.6/distutils/__init__.py	/^        loader = importlib.machinery.SourceFileLoader("_virtualenv_distutils", distutils_path)$/;"	kind:variable	line:25
+login	../backend/mspsite/test_portal/views.py	/^def login(request):$/;"	kind:function	line:40
+logout	../backend/mspsite/test_portal/views.py	/^def logout(request):$/;"	kind:function	line:177
+main	../backend/mspsite/manage.py	/^def main():$/;"	kind:function	line:7
+main	../msp_portal/lib/python3.6/site.py	/^def main():$/;"	kind:function	line:724
+makepath	../msp_portal/lib/python3.6/site.py	/^def makepath(*paths):$/;"	kind:function	line:91
+manage.py	../backend/mspsite/manage.py	1;"	kind:file	line:1
+marks	../backend/mspsite/test_portal/models.py	/^	marks = models.IntegerField(default = 0, editable = True)$/;"	kind:variable	line:64
+marks	../backend/mspsite/test_portal/models.py	/^	marks = models.IntegerField(default = 10)$/;"	kind:variable	line:38
+marks	../backend/mspsite/test_portal/models.py	/^	marks = models.IntegerField(default = 10)$/;"	kind:variable	line:51
+model	../backend/mspsite/test_portal/forms.py	/^        model = Candidate$/;"	kind:variable	line:8
+model	../backend/mspsite/test_portal/forms.py	/^        model = ResponseMCQ$/;"	kind:variable	line:20
+model	../backend/mspsite/test_portal/forms.py	/^        model = ResponseSub$/;"	kind:variable	line:14
+model_name	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^            model_name='responsesub',$/;"	kind:variable	line:14
+models.py	../backend/mspsite/test_portal/models.py	1;"	kind:file	line:1
+name	../backend/mspsite/test_portal/apps.py	/^    name = 'test_portal'$/;"	kind:variable	line:5
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='Candidate',$/;"	kind:variable	line:16
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='Exam',$/;"	kind:variable	line:73
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='QuestionMCQ',$/;"	kind:variable	line:30
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='QuestionSub',$/;"	kind:variable	line:43
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='ResponseMCQ',$/;"	kind:variable	line:61
+name	../backend/mspsite/test_portal/migrations/0001_initial.py	/^            name='ResponseSub',$/;"	kind:variable	line:52
+name	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^            name='marks',$/;"	kind:variable	line:15
+new	../msp_portal/bin/activate_this.py	/^new = list(sys.path)$/;"	kind:variable	line:45
+old_find_config_files	../msp_portal/lib/python3.6/distutils/__init__.py	/^old_find_config_files = dist.Distribution.find_config_files$/;"	kind:variable	line:73
+old_get_config_vars	../msp_portal/lib/python3.6/distutils/__init__.py	/^old_get_config_vars = sysconfig.get_config_vars$/;"	kind:variable	line:119
+old_get_python_inc	../msp_portal/lib/python3.6/distutils/__init__.py	/^old_get_python_inc = sysconfig.get_python_inc$/;"	kind:variable	line:95
+old_get_python_lib	../msp_portal/lib/python3.6/distutils/__init__.py	/^old_get_python_lib = sysconfig.get_python_lib$/;"	kind:variable	line:107
+operations	../backend/mspsite/test_portal/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:14
+operations	../backend/mspsite/test_portal/migrations/0002_responsesub_marks.py	/^    operations = [$/;"	kind:variable	line:12
+opt1	../backend/mspsite/test_portal/models.py	/^	opt1 = models.CharField(default='', max_length=200)$/;"	kind:variable	line:47
+opt2	../backend/mspsite/test_portal/models.py	/^	opt2 = models.CharField(default='', max_length=200)$/;"	kind:variable	line:48
+opt3	../backend/mspsite/test_portal/models.py	/^	opt3 = models.CharField(default='', max_length=200)$/;"	kind:variable	line:49
+opt4	../backend/mspsite/test_portal/models.py	/^	opt4 = models.CharField(default='', max_length=200)$/;"	kind:variable	line:50
+password	../backend/mspsite/test_portal/models.py	/^	password = models.CharField(max_length =25, default = '')$/;"	kind:variable	line:20
+prev	../msp_portal/bin/activate_this.py	/^prev = set(sys.path)$/;"	kind:variable	line:39
+ques_detail_mcq	../backend/mspsite/test_portal/views.py	/^def ques_detail_mcq(request, ques_no = 1, id = 'a'):$/;"	kind:function	line:64
+ques_no	../backend/mspsite/test_portal/models.py	/^	ques_no = models.IntegerField(null = True)$/;"	kind:variable	line:39
+ques_no	../backend/mspsite/test_portal/models.py	/^	ques_no = models.IntegerField(null=True)$/;"	kind:variable	line:52
+quesno	../backend/mspsite/test_portal/models.py	/^	def quesno(self):$/;"	kind:member	line:75
+question	../backend/mspsite/test_portal/models.py	/^	question = models.CharField(max_length=256, default = '')$/;"	kind:variable	line:37
+question	../backend/mspsite/test_portal/models.py	/^	question = models.CharField(max_length=256, default = '')$/;"	kind:variable	line:46
+question	../backend/mspsite/test_portal/models.py	/^	question = models.ForeignKey("QuestionMCQ", on_delete=models.CASCADE,)$/;"	kind:variable	line:81
+question	../backend/mspsite/test_portal/models.py	/^	question = models.ForeignKey("QuestionSub", on_delete=models.CASCADE,)$/;"	kind:variable	line:60
+question_list	../backend/mspsite/test_portal/views.py	/^def question_list(request, ques_no = 1, id = 'a'):$/;"	kind:function	line:125
+real_distutils	../msp_portal/lib/python3.6/distutils/__init__.py	/^            real_distutils = importlib.util.module_from_spec(spec)$/;"	kind:variable	line:34
+real_distutils	../msp_portal/lib/python3.6/distutils/__init__.py	/^            real_distutils = types.ModuleType(loader.name)$/;"	kind:variable	line:29
+real_distutils	../msp_portal/lib/python3.6/distutils/__init__.py	/^        real_distutils = imp.load_module("_virtualenv_distutils", None, distutils_path, ("", "", imp.PKG_DIRECTORY))$/;"	kind:variable	line:20
+register	../backend/mspsite/test_portal/views.py	/^def register(request):$/;"	kind:function	line:18
+register_readline	../msp_portal/lib/python3.6/site.py	/^    def register_readline():$/;"	kind:function	line:657
+removeduppaths	../msp_portal/lib/python3.6/site.py	/^def removeduppaths():$/;"	kind:function	line:106
+response1	../backend/mspsite/test_portal/models.py	/^	response1 = models.BooleanField(default=False)$/;"	kind:variable	line:83
+response2	../backend/mspsite/test_portal/models.py	/^	response2 = models.BooleanField(default=False)$/;"	kind:variable	line:84
+response3	../backend/mspsite/test_portal/models.py	/^	response3 = models.BooleanField(default=False)$/;"	kind:variable	line:85
+response4	../backend/mspsite/test_portal/models.py	/^	response4 = models.BooleanField(default=False)$/;"	kind:variable	line:86
+response_save	../backend/mspsite/test_portal/views.py	/^def response_save(request, pk, next, id = 'a',):$/;"	kind:function	line:145
+response_savem	../backend/mspsite/test_portal/views.py	/^def response_savem(request, pk, next, id = 'a'):$/;"	kind:function	line:90
+setBEGINLIBPATH	../msp_portal/lib/python3.6/site.py	/^def setBEGINLIBPATH():$/;"	kind:function	line:346
+setcopyright	../msp_portal/lib/python3.6/site.py	/^def setcopyright():$/;"	kind:function	line:460
+setencoding	../msp_portal/lib/python3.6/site.py	/^def setencoding():$/;"	kind:function	line:518
+sethelper	../msp_portal/lib/python3.6/site.py	/^def sethelper():$/;"	kind:function	line:496
+setquit	../msp_portal/lib/python3.6/site.py	/^def setquit():$/;"	kind:function	line:363
+settings.py	../backend/mspsite/mspsite/settings.py	1;"	kind:file	line:1
+site.py	../msp_portal/lib/python3.6/site.py	1;"	kind:file	line:1
+site_packages	../msp_portal/bin/activate_this.py	/^        site_packages = os.path.join(base, "Lib", "site-packages")$/;"	kind:variable	line:35
+site_packages	../msp_portal/bin/activate_this.py	/^        site_packages = os.path.join(base, "lib", "python{}".format(sys.version[:3]), "site-packages")$/;"	kind:variable	line:37
+site_packages	../msp_portal/bin/activate_this.py	/^    site_packages = os.path.join(base, "Lib", "site-packages")$/;"	kind:variable	line:29
+site_packages	../msp_portal/bin/activate_this.py	/^    site_packages = os.path.join(base, "site-packages")$/;"	kind:variable	line:31
+spec	../msp_portal/lib/python3.6/distutils/__init__.py	/^            spec = importlib.util.spec_from_loader(loader.name, loader)$/;"	kind:variable	line:33
+start_time	../backend/mspsite/test_portal/models.py	/^	start_time = models.DateTimeField()$/;"	kind:variable	line:13
+submit	../backend/mspsite/test_portal/models.py	/^	def submit(self):$/;"	kind:member	line:66
+submit	../backend/mspsite/test_portal/models.py	/^	def submit(self):$/;"	kind:member	line:88
+sysconfig_get_config_vars	../msp_portal/lib/python3.6/distutils/__init__.py	/^def sysconfig_get_config_vars(*args):$/;"	kind:function	line:122
+sysconfig_get_python_inc	../msp_portal/lib/python3.6/distutils/__init__.py	/^def sysconfig_get_python_inc(plat_specific=0, prefix=None):$/;"	kind:function	line:98
+sysconfig_get_python_lib	../msp_portal/lib/python3.6/distutils/__init__.py	/^def sysconfig_get_python_lib(plat_specific=0, standard_lib=0, prefix=None):$/;"	kind:function	line:110
+tests.py	../backend/mspsite/test_portal/tests.py	1;"	kind:file	line:1
+update_user_profile	../backend/mspsite/test_portal/models.py	/^	def update_user_profile(sender, instance, created, **kwargs):$/;"	kind:member	line:27
+urlpatterns	../backend/mspsite/mspsite/urls.py	/^urlpatterns = [$/;"	kind:variable	line:19
+urlpatterns	../backend/mspsite/test_portal/urls.py	/^urlpatterns = [$/;"	kind:variable	line:3
+urls.py	../backend/mspsite/mspsite/urls.py	1;"	kind:file	line:1
+urls.py	../backend/mspsite/test_portal/urls.py	1;"	kind:file	line:1
+use_required_attribute	../backend/mspsite/test_portal/models.py	/^	use_required_attribute = True$/;"	kind:variable	line:25
+user	../backend/mspsite/test_portal/models.py	/^	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)$/;"	kind:variable	line:11
+user	../backend/mspsite/test_portal/models.py	/^	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)$/;"	kind:variable	line:59
+user	../backend/mspsite/test_portal/models.py	/^	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)$/;"	kind:variable	line:80
+username	../backend/mspsite/test_portal/models.py	/^	username = models.CharField(max_length = 25, default = '', unique = True)$/;"	kind:variable	line:19
+views.py	../backend/mspsite/test_portal/views.py	1;"	kind:file	line:1
+virtual_addsitepackages	../msp_portal/lib/python3.6/site.py	/^def virtual_addsitepackages(known_paths):$/;"	kind:function	line:635
+virtual_install_main_packages	../msp_portal/lib/python3.6/site.py	/^def virtual_install_main_packages():$/;"	kind:function	line:547
+welcome	../backend/mspsite/test_portal/views.py	/^def welcome(request):$/;"	kind:function	line:15
+write_history	../msp_portal/lib/python3.6/site.py	/^            def write_history():$/;"	kind:function	line:695
+wsgi.py	../backend/mspsite/mspsite/wsgi.py	1;"	kind:file	line:1
