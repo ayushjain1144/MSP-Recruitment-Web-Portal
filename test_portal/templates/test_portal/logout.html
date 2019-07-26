@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
- 
+
+    <script language = "javascript" type = "text/javascript">
+	function clearSS() {
+		window.sessionStorage.clear();	
+	}
+	window.onload = clearSS()
+    </script>
     <div class="content">
         <div class="section-inner clearfix">
  
