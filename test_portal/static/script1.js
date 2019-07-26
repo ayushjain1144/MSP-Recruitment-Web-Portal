@@ -55,21 +55,9 @@ function loadFunction() {
 
 }
 
-function proceedRound2() {    
-    var conf;
-    round = window.sessionStorage.getItem("round");    
-    if (document.getElementById("hidden_round").value != round) {
-        conf = true;
-        alert("You have already completed Round 1!");
-    }
-    else {
-        conf = confirm("Are you sure you want to proceed to Round 2? You cannot return to Round 1!");
-        if (conf == true) {        
-            btnClickMCQ();
-            window.sessionStorage.setItem("round", "2");
-        }
-    }
-    return conf;
+function proceedRound2() {            
+    btnClickMCQ();
+    window.sessionStorage.setItem("round", "2");
 }
 
 function finishTest() {
