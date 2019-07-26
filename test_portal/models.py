@@ -5,14 +5,6 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-
-
-class Exam(models.Model):
-	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
-	duration = models.IntegerField(default = 60)
-	start_time = models.DateTimeField()
-
-
 class Candidate(models.Model):
 	firstName = models.CharField(max_length = 25, default = '')
 	lastName = models.CharField(max_length = 25, default = '')
@@ -31,6 +23,15 @@ class Candidate(models.Model):
 
 	def __str__(self):
 		return self.bitsid
+
+class Exam(models.Model):
+	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
+	logged_in = models.IntegerField(default = 0)
+	start_time = models.DateTimeField()
+	logged_out = models.IntegerField(default = 0)
+
+	def __str__(self):
+		return self.user.bitsid
 	
 class QuestionSub(models.Model):
 

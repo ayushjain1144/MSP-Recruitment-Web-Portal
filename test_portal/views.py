@@ -6,9 +6,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 from .forms import PostForm
 from .models import QuestionSub, QuestionMCQ
-from .models import ResponseSub, ResponseMCQ
+from .models import ResponseSub, ResponseMCQ, Exam
 from .forms import GetResponse, GetResponseMCQ
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.utils import timezone
 
 # Create your views here.
 
@@ -48,8 +49,22 @@ def login(request):
 
 		# correct username and password login the user
 		if user is not None:
-			auth.login(request, user)
-			return redirect(ques_detail_mcq, id = username)
+			try:
+				user1 = Candidate.objects.get(username=username)
+				exam = Exam.objects.get(user = user1)
+				if exam.logged_out is 1:
+					return HttpResponse('You have finished the test')
+				else:
+					auth.login(request, user)
+					return redirect(ques_detail_mcq, id = username)				
+			except Exam.DoesNotExist:
+				exam = Exam()
+				exam.user = Candidate.objects.get(username=username)
+				exam.start_time = timezone.now()
+				exam.logged_in = 1
+				exam.save()
+				auth.login(request, user)
+				return redirect(ques_detail_mcq, id = username)
 
 		else:
 			messages.error(request, 'Error wrong username/password')
@@ -162,7 +177,14 @@ def response_save(request, pk, next, id = 'a',):
 				next = pk + 1
 				return redirect('question_list', ques_no = next, id = id)
 
+			elif 'Round1' in request.POST:
+				return redirect(ques_detail_mcq, id = id)
+
 			elif 'Finish' in request.POST:
+				user = Candidate.objects.get(username=id)
+				exam = Exam.objects.get(user = user)
+				exam.logged_out = 1
+				exam.save()
 				return redirect('test_logout')
 
 			else:
