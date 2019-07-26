@@ -60,6 +60,11 @@ function proceedRound2() {
     window.sessionStorage.setItem("round", "2");
 }
 
+function goBackRound1() {
+    btnClickDes();
+    window.sessionStorage.setItem("round", "1");
+}
+
 function finishTest() {
     var conf;
     round = window.sessionStorage.getItem("round");    
