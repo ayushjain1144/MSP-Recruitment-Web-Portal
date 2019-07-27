@@ -59,6 +59,10 @@ nav {
     color: grey;
 }
 
+#round1-logout {
+    display: none;
+}
+
 #finishBtn {
     font-size: 18px;
 }
