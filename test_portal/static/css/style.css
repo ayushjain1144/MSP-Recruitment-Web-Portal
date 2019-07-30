@@ -50,13 +50,17 @@ nav {
     font-weight: 700;
 }
 
-#stage-2-proceed {
+#stage-2-proceed, #stage-1-back {
     color: white;
     transition: 0.3s;
 }
 
-#stage-2-proceed:hover {
+#stage-2-proceed:hover, #stage-1-back:hover {
     color: grey;
+}
+
+#round1-logout {
+    display: none;
 }
 
 #finishBtn {
@@ -166,7 +170,7 @@ textarea {
     text-align: center;
 }
 
-.nav-arrow > button, #stage-2-proceed > p > button {
+.nav-arrow > button, #stage-2-proceed > p > button, #stage-1-back > p > button {
     background: none;
     border: none;
 }
