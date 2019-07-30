@@ -126,6 +126,13 @@ def response_savem(request, pk, next, id = 'a'):
 				return redirect('ques_detail_mcq', ques_no = next, id = id)
 
 			elif 'Finish' in request.POST:
+				user = Candidate.objects.get(username=id)
+				exam = Exam.objects.get(user = user)
+				exam.logged_out = 1
+				exam.save()
+				return redirect('test_logout')
+
+			elif 'Round2' in request.POST:
 				return redirect(question_list, id = id)
 
 			else:
