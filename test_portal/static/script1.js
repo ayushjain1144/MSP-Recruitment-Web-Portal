@@ -1,9 +1,14 @@
 function loadFunction() {
     
-    var start_time = window.sessionStorage.getItem("start_time");
-    if (start_time === null) {
-        start_time = document.getElementById("start_time").value;
+    var start_time;
+    if (window.sessionStorage.getItem("start_time") === null) {
+        var start_time_str = document.getElementById("start_time").value;
+        //TODO : parse the Django based "Y n j H i s" datetime to JS Date
         window.sessionStorage.setItem("start_time", start_time);
+    }
+    else {
+        start_time_str = window.sessionStorage.getItem("start_time");
+        start_time = new Date(start_time_str);
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
@@ -60,6 +65,7 @@ function loadFunction() {
         element[i].className += btnMapping[btnStatus[i]];
     }
     
+    //TODO
     start_timer();
 
 }
