@@ -1,4 +1,11 @@
 function loadFunction() {
+    
+    var start_time = window.sessionStorage.getItem("start_time");
+    if (start_time === null) {
+        start_time = document.getElementById("start_time").value;
+        window.sessionStorage.setItem("start_time", start_time);
+    }
+    
     var qnum = document.getElementById("qnum").innerHTML;
     var count_q = document.getElementById("qnum-count").innerHTML;
     var round = "1";
@@ -52,7 +59,13 @@ function loadFunction() {
         element[i].className = "btn ";
         element[i].className += btnMapping[btnStatus[i]];
     }
+    
+    start_timer();
 
+}
+
+function start_timer() {
+    //TODO   
 }
 
 function proceedRound2() {            
