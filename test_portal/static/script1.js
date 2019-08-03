@@ -1,14 +1,18 @@
 function loadFunction() {
     
-    var start_time;
+    var start_time, start_time_str;
     if (window.sessionStorage.getItem("start_time") === null) {
-        var start_time_str = document.getElementById("start_time").value;
-        //TODO : parse the Django based "Y n j H i s" datetime to JS Date
+        start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
+        start_time = Date.parse(start_time_str);
         window.sessionStorage.setItem("start_time", start_time);
     }
     else {
         start_time_str = window.sessionStorage.getItem("start_time");
         start_time = new Date(start_time_str);
+    }
+    
+    if (window.sessionStorage.getItem("ms_rem") == null) {        
+        window.sessionStorage.setItem("ms_rem", 3600000 - (Date.now() - start_time));
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
@@ -65,13 +69,21 @@ function loadFunction() {
         element[i].className += btnMapping[btnStatus[i]];
     }
     
-    //TODO
     start_timer();
 
 }
 
 function start_timer() {
-    //TODO   
+    setInterval(timer_helper(), 1000);   
+}
+
+function timer_helper() {
+    ms_rem = window.sessionStorage.getItem("ms_rem");
+    ms_rem = ms_rem - 1000;
+    if (ms_rem <= 0) {
+        document.getElementsByName("Finish")[0].click();   
+    }
+    window.sessionStorage.setItem("ms_rem", ms_rem);
 }
 
 function proceedRound2() {            
