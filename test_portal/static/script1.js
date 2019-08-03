@@ -73,8 +73,14 @@ function timer_helper() {
     --sec_rem;
     var mins = (int)(sec_rem / 60);
     var secs = sec_rem % 60;
-    document.getElementById("timer-mins").innerHTML = mins;
-    document.getElementById("timer-secs").innerHTML = secs;
+    if(mins < 10){
+        var mins_str = "0"+ mins;
+    }
+    if(secs < 10){
+        var secs_str = "0"+ secs;
+    }    
+    document.getElementById("timer-mins").innerHTML = mins_str;
+    document.getElementById("timer-secs").innerHTML = secs_str;
     if (sec_rem <= 0) {
         document.getElementsByName("Finish")[0].click();   
     }
