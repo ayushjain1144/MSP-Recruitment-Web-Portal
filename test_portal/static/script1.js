@@ -1,18 +1,9 @@
 function loadFunction() {
     
-    var start_time, start_time_str;
-    if (window.sessionStorage.getItem("start_time") === null) {
-        start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
-        start_time = Date.parse(start_time_str);
-        window.sessionStorage.setItem("start_time", start_time);
-    }
-    else {
-        start_time_str = window.sessionStorage.getItem("start_time");
-        start_time = new Date(start_time_str);
-    }
-    
-    if (window.sessionStorage.getItem("ms_rem") == null) {        
-        window.sessionStorage.setItem("ms_rem", 3600000 - (Date.now() - start_time));
+    if (window.sessionStorage.getItem("sec_rem") == null) {
+        var start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
+        var start_time = (int)(Date.parse(start_time_str) / 1000);
+        window.sessionStorage.setItem("sec_rem", 3600 - ((int)(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
@@ -78,12 +69,16 @@ function start_timer() {
 }
 
 function timer_helper() {
-    ms_rem = window.sessionStorage.getItem("ms_rem");
-    ms_rem = ms_rem - 1000;
-    if (ms_rem <= 0) {
+    var sec_rem = (int)window.sessionStorage.getItem("sec_rem");
+    --sec_rem;
+    var mins = (int)(sec_rem / 60);
+    var secs = sec_rem % 60;
+    document.getElementById("timer-mins").innerHTML = mins;
+    document.getElementById("timer-secs").innerHTML = secs;
+    if (sec_rem <= 0) {
         document.getElementsByName("Finish")[0].click();   
     }
-    window.sessionStorage.setItem("ms_rem", ms_rem);
+    window.sessionStorage.setItem("sec_rem", sec_rem);
 }
 
 function proceedRound2() {            
