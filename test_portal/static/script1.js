@@ -25,10 +25,14 @@ function loadFunction() {
     }
     
     if (qnum <= 1) {
-        document.getElementsByClassName("nav-arrow")[0].getElementsByTagName("button")[0].disabled = true;
+        var element = document.getElementsByClassName("nav-arrow")[0].getElementsByTagName("button")[0];
+        element.disabled = true;
+        element.style.visibility = "hidden";
     }
     if (qnum >= count_q) {
-        document.getElementsByClassName("nav-arrow")[1].getElementsByTagName("button")[0].disabled = true;
+        var element = document.getElementsByClassName("nav-arrow")[1].getElementsByTagName("button")[0];
+        element.disabled = true;
+        element.style.visibility = "hidden";
     }
     
     /*
