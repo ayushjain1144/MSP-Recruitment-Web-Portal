@@ -84,6 +84,10 @@ def ques_detail_mcq(request, ques_no = 1, id = 'a'):
 
 	question = QuestionMCQ.objects.get(ques_no=ques_no)
 
+	user1 = Candidate.objects.get(username=id)
+	exam = Exam.objects.get(user = user1)
+	time = exam.start_time
+
 	try:
 		user = Candidate.objects.get(username=id)
 		new = ResponseMCQ.objects.get(user=user, question=QuestionMCQ.objects.get(ques_no = ques_no))
@@ -99,7 +103,7 @@ def ques_detail_mcq(request, ques_no = 1, id = 'a'):
 		res4 = False
 		form = GetResponseMCQ()
 
-	return render(request, 'test_portal/round1.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1),
+	return render(request, 'test_portal/round1.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1), 'time' : time,
 														   'response1' : res1,'response2' : res2,'response3' : res3, 'response4' : res4, 'count' : ques_count})
 
 def response_savem(request, pk, next, id = 'a'):
@@ -145,6 +149,10 @@ def question_list(request, ques_no = 1, id = 'a'):
 
 	question = QuestionSub.objects.get(ques_no=ques_no)
 
+	user1 = Candidate.objects.get(username=id)
+	exam = Exam.objects.get(user = user1)
+	time = exam.start_time
+
 	try:
 		user = Candidate.objects.get(username=id)
 		new = ResponseSub.objects.get(user=user, question=QuestionSub.objects.get(ques_no = ques_no))
@@ -155,7 +163,7 @@ def question_list(request, ques_no = 1, id = 'a'):
 		form = GetResponse(initial={'free_response': 'Answer here!'})
 
 
-	return render(request, 'test_portal/round2.html',{'question': question, 'form': form, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1), 'i' : 1, 'response' : answer, 'count' : ques_count})
+	return render(request, 'test_portal/round2.html',{'question': question, 'form': form, 'time' : time, 'pksent': ques_no, 'id':id, 'n' : range(1,ques_count+1), 'i' : 1, 'response' : answer, 'count' : ques_count})
 
 def response_save(request, pk, next, id = 'a',):
 	if request.method == 'POST':
