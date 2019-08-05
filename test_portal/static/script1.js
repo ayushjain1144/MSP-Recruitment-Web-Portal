@@ -1,6 +1,6 @@
 function loadFunction() {
     
-    if (window.sessionStorage.getItem("sec_rem") == null) {
+    if (window.sessionStorage.getItem("sec_rem") === null) {
         var start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
         var start_time = (int)(Date.parse(start_time_str) / 1000);
         window.sessionStorage.setItem("sec_rem", 3600 - ((int)(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
