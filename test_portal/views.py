@@ -119,6 +119,10 @@ def response_savem(request, pk, next, id = 'a'):
 			response.response3 = response_rec.cleaned_data['response3']
 			response.response4 = response_rec.cleaned_data['response4']
 			response.question = QuestionMCQ.objects.get(pk = pk)
+
+			if (response.response1 == response.question.ans1) and (response.response2 == response.question.ans2) and (response.response3 == response.question.ans3) and (response.response4 == response.question.ans4):
+				response.marks = response.question.marks
+
 			response.user = Candidate.objects.get(username=id)
 			response.save()
 			if 'SavePrevious' in request.POST:

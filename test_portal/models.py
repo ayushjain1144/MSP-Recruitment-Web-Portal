@@ -51,6 +51,11 @@ class QuestionMCQ(models.Model):
 	opt4 = models.CharField(default='', max_length=200)
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null=True)
+	
+	ans1 = models.BooleanField(default=False)
+	ans2 = models.BooleanField(default=False)
+	ans3 = models.BooleanField(default=False)
+	ans4 = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.question
@@ -85,6 +90,8 @@ class ResponseMCQ(models.Model):
 	response2 = models.BooleanField(default=False)
 	response3 = models.BooleanField(default=False)
 	response4 = models.BooleanField(default=False)
+
+	marks = models.IntegerField(default=0)
 
 	def submit(self):
 		self.save()
