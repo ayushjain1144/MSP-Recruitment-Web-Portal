@@ -9,7 +9,6 @@ class Candidate(models.Model):
 	firstName = models.CharField(max_length = 25, default = '')
 	lastName = models.CharField(max_length = 25, default = '')
 	username = models.CharField(max_length = 25, default = '', unique = True)
-	password = models.CharField(max_length =25, default = '')
 	email = models.URLField(default = '')
 	bitsid = models.CharField(max_length = 20, unique = True)
 	contact = models.CharField(max_length = 10, default = '')
