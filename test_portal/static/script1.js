@@ -1,4 +1,17 @@
 function loadFunction() {
+    
+    if (window.sessionStorage.getItem("sec_rem") === null) {
+<<<<<<< HEAD
+        var start_time_str = document.getElementById("start_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.        
+        var start_time = Math.floor(Date.parse(start_time_str) / 1000);
+        window.sessionStorage.setItem("sec_rem", 3600 - (Math.floor(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
+=======
+        var start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
+        var start_time = (int)(Date.parse(start_time_str) / 1000);
+        window.sessionStorage.setItem("sec_rem", 3600 - ((int)(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
+>>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
+    }
+    
     var qnum = document.getElementById("qnum").innerHTML;
     var count_q = document.getElementById("qnum-count").innerHTML;
     var round = "1";
@@ -18,10 +31,14 @@ function loadFunction() {
     }
     
     if (qnum <= 1) {
-        document.getElementsByClassName("nav-arrow")[0].getElementsByTagName("button")[0].disabled = true;
+        var element = document.getElementsByClassName("nav-arrow")[0].getElementsByTagName("button")[0];
+        element.disabled = true;
+        element.style.visibility = "hidden";
     }
     if (qnum >= count_q) {
-        document.getElementsByClassName("nav-arrow")[1].getElementsByTagName("button")[0].disabled = true;
+        var element = document.getElementsByClassName("nav-arrow")[1].getElementsByTagName("button")[0];
+        element.disabled = true;
+        element.style.visibility = "hidden";
     }
     
     /*
@@ -52,7 +69,51 @@ function loadFunction() {
         element[i].className = "btn ";
         element[i].className += btnMapping[btnStatus[i]];
     }
+    
+    start_timer();
 
+}
+<<<<<<< HEAD
+
+function start_timer() {
+    setInterval(timer_helper, 1000);
+}
+
+function timer_helper() {
+    var sec_rem = parseInt(window.sessionStorage.getItem("sec_rem"));
+    --sec_rem;
+    var mins = Math.floor(sec_rem / 60);
+    var secs = sec_rem % 60;
+    var mins_str = mins, secs_str = secs;
+    if(mins < 10){
+        mins_str = "0" + mins;
+    }
+    if(secs < 10){
+        secs_str = "0" + secs;
+=======
+
+function start_timer() {
+    setInterval(timer_helper(), 1000);   
+}
+
+function timer_helper() {
+    var sec_rem = (int)window.sessionStorage.getItem("sec_rem");
+    --sec_rem;
+    var mins = (int)(sec_rem / 60);
+    var secs = sec_rem % 60;
+    if(mins < 10){
+        var mins_str = "0"+ mins;
+    }
+    if(secs < 10){
+        var secs_str = "0"+ secs;
+>>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
+    }    
+    document.getElementById("timer-mins").innerHTML = mins_str;
+    document.getElementById("timer-secs").innerHTML = secs_str;
+    if (sec_rem <= 0) {
+        document.getElementsByName("Finish")[0].click();   
+    }
+    window.sessionStorage.setItem("sec_rem", sec_rem);
 }
 
 function proceedRound2() {            
@@ -67,8 +128,12 @@ function goBackRound1() {
 
 function finishTest() {
     var conf;
-    round = window.sessionStorage.getItem("round");    
-    if (document.getElementById("hidden_round").value != round) {
+    var round = window.sessionStorage.getItem("round");
+    var sec_rem = parseInt(window.sessionStorage.getItem("sec_rem"));
+    if (sec_rem <= 1) {
+        conf = true;   
+    }
+    else if (document.getElementById("hidden_round").value != round) {
         conf = true;
         alert("You have already completed the test!");
     }

@@ -149,9 +149,13 @@ textarea {
     border-radius: 10px;
 }
 
-.ques-sel > p {
+#ques-sel-title {
     text-align: center;
     font-size: 30px;
+}
+
+#ques-sel-time {
+    font-size: 20px;
 }
 
 .progress-info {
