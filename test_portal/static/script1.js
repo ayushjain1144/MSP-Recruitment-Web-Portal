@@ -1,15 +1,9 @@
 function loadFunction() {
     
     if (window.sessionStorage.getItem("sec_rem") === null) {
-<<<<<<< HEAD
         var start_time_str = document.getElementById("start_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.        
         var start_time = Math.floor(Date.parse(start_time_str) / 1000);
         window.sessionStorage.setItem("sec_rem", 3600 - (Math.floor(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
-=======
-        var start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
-        var start_time = (int)(Date.parse(start_time_str) / 1000);
-        window.sessionStorage.setItem("sec_rem", 3600 - ((int)(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
->>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
