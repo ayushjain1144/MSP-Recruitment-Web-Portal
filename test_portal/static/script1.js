@@ -1,15 +1,9 @@
 function loadFunction() {
     
     if (window.sessionStorage.getItem("sec_rem") === null) {
-<<<<<<< HEAD
         var start_time_str = document.getElementById("start_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.        
         var start_time = Math.floor(Date.parse(start_time_str) / 1000);
         window.sessionStorage.setItem("sec_rem", 3600 - (Math.floor(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
-=======
-        var start_time_str = document.getElementById("start_time").value + " GMT+0530"; // Hardcoding it to be for India only. Can change later.        
-        var start_time = (int)(Date.parse(start_time_str) / 1000);
-        window.sessionStorage.setItem("sec_rem", 3600 - ((int)(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
->>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
@@ -73,7 +67,6 @@ function loadFunction() {
     start_timer();
 
 }
-<<<<<<< HEAD
 
 function start_timer() {
     setInterval(timer_helper, 1000);
@@ -90,23 +83,6 @@ function timer_helper() {
     }
     if(secs < 10){
         secs_str = "0" + secs;
-=======
-
-function start_timer() {
-    setInterval(timer_helper(), 1000);   
-}
-
-function timer_helper() {
-    var sec_rem = (int)window.sessionStorage.getItem("sec_rem");
-    --sec_rem;
-    var mins = (int)(sec_rem / 60);
-    var secs = sec_rem % 60;
-    if(mins < 10){
-        var mins_str = "0"+ mins;
-    }
-    if(secs < 10){
-        var secs_str = "0"+ secs;
->>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
     }    
     document.getElementById("timer-mins").innerHTML = mins_str;
     document.getElementById("timer-secs").innerHTML = secs_str;
