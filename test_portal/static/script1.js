@@ -67,7 +67,6 @@ function loadFunction() {
     start_timer();
 
 }
-<<<<<<< HEAD
 
 function start_timer() {
     setInterval(timer_helper, 1000);
@@ -84,23 +83,6 @@ function timer_helper() {
     }
     if(secs < 10){
         secs_str = "0" + secs;
-=======
-
-function start_timer() {
-    setInterval(timer_helper(), 1000);   
-}
-
-function timer_helper() {
-    var sec_rem = (int)window.sessionStorage.getItem("sec_rem");
-    --sec_rem;
-    var mins = (int)(sec_rem / 60);
-    var secs = sec_rem % 60;
-    if(mins < 10){
-        var mins_str = "0"+ mins;
-    }
-    if(secs < 10){
-        var secs_str = "0"+ secs;
->>>>>>> 8e8c4548ef93f1662ddbb7b50589ff8706b0bb5f
     }    
     document.getElementById("timer-mins").innerHTML = mins_str;
     document.getElementById("timer-secs").innerHTML = secs_str;
