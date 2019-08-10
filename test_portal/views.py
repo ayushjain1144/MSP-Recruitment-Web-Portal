@@ -25,7 +25,6 @@ def register(request):
 			candidate.firstName = form.cleaned_data['firstName']
 			candidate.lastName = form.cleaned_data['lastName']
 			candidate.username = form.cleaned_data['username']
-			candidate.password = form.cleaned_data['password']
 			candidate.email = form.cleaned_data['email']
 			candidate.bitsid = form.cleaned_data['bitsid']
 			candidate.contact = form.cleaned_data['contact']
@@ -33,7 +32,7 @@ def register(request):
 			candidate.save()
 			return redirect('test_login')
 		else:
-			return HttpResponse(form.errors)
+			messages.error(request, form.errors)
 	else:
 		form = PostForm()
 	return render(request, 'test_portal/register.html', {'form': form})
@@ -217,4 +216,4 @@ def response_save(request, pk, next, id = 'a',):
 
 def logout(request):
 	auth.logout(request)
-	return render(request, 'test_portal/logout.html')
+	return render(request, 'test_portal/thankYou.html')
