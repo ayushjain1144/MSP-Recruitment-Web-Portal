@@ -1,0 +1,94 @@
+.thankYouCircle {
+    margin: auto;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 50px;
+    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.16);
+}
+
+.thankYouCircle .text {
+    /* background: -webkit-linear-gradient(rgb(218, 98, 118), #ffc3a0); */
+    color: rgb(218, 98, 118);
+}
+
+.thankYouDeck {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.thankYouDeck .team {
+    margin: auto;
+    width: 100%;
+    margin-top: 2%;
+    height: 92%;
+    overflow: scroll;
+}
+
+.thankYouDeck .teamContainer {
+    margin: auto;
+    width: 70%;
+    height: 90%;
+    overflow: scroll;
+}
+
+.topRow {
+    width: 100%;
+    height: 6%;
+    margin: 0 auto
+}
+
+.title {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 33px;
+}
+
+.thankYouDeck .team .teamImages {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageContainer {
+    width: 25%;
+}
+
+.imageContainer .name {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 300
+}
+
+.imageContainer .designation {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 10%;
+}
+
+.teamImages .teamImage {
+    width: 98%;
+    margin: 1%;
+    /* margin-left: 1%; */
+    border: 4px solid white;
+    border-radius: 50%
+}

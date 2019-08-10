@@ -216,4 +216,4 @@ def response_save(request, pk, next, id = 'a',):
 
 def logout(request):
 	auth.logout(request)
-	return render(request, 'test_portal/logout.html')
+	return render(request, 'test_portal/thankYou.html')
