@@ -34,7 +34,7 @@ class Exam(models.Model):
 	
 class QuestionSub(models.Model):
 
-	question = models.CharField(max_length=256, default = '')
+	question = models.CharField(max_length=2000, default = '')
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null = True)
 
@@ -43,11 +43,11 @@ class QuestionSub(models.Model):
 
 class QuestionMCQ(models.Model):
 
-	question = models.CharField(max_length=256, default = '')
-	opt1 = models.CharField(default='', max_length=200)
-	opt2 = models.CharField(default='', max_length=200)
-	opt3 = models.CharField(default='', max_length=200)
-	opt4 = models.CharField(default='', max_length=200)
+	question = models.CharField(max_length=2000, default = '')
+	opt1 = models.CharField(default='', max_length=300)
+	opt2 = models.CharField(default='', max_length=300)
+	opt3 = models.CharField(default='', max_length=300)
+	opt4 = models.CharField(default='', max_length=300)
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null=True)
 	
@@ -64,7 +64,7 @@ class ResponseSub(models.Model):
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
 	question = models.ForeignKey("QuestionSub", on_delete=models.CASCADE,)
 
-	free_response = models.TextField(max_length = 2000, blank = True)
+	free_response = models.TextField(max_length = 3000, blank = True)
 
 	marks = models.IntegerField(default = 0, editable = True)
 
