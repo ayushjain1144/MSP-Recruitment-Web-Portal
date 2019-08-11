@@ -1,29 +1,29 @@
 .thankYouCircle {
     margin: auto;
-    height: 400px;
-    width: 400px;
-    border-radius: 50%;
-    background-color: white;
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    font-size: 50px;
-    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.16);
+    font-size: 70px;
 }
 
 .thankYouCircle .text {
     /* background: -webkit-linear-gradient(rgb(218, 98, 118), #ffc3a0); */
-    color: rgb(218, 98, 118);
+    color: white; /* rgb(218, 98, 118); */
 }
 
 .thankYouDeck {
     height: 90%;
     width: 100%;
     position: absolute;
+    /*
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    */
     align-items: center;
 }
 
@@ -33,14 +33,12 @@
     width: 100%;
     margin-top: 2%;
     height: 92%;
-    overflow: scroll;
 }
 
 .thankYouDeck .teamContainer {
     margin: auto;
     width: 70%;
     height: 90%;
-    overflow: scroll;
 }
 
 .topRow {
@@ -65,23 +63,24 @@
 }
 
 .imageContainer {
-    width: 25%;
+    width: 20%;
+    margin: 10px;
 }
 
 .imageContainer .name {
     width: 100%;
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 24px;
     text-align: center;
-    font-weight: 300
+    font-weight: 400;
 }
 
 .imageContainer .designation {
     width: 100%;
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 24px;
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 10%;
 }
 
