@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="{% static '/login/favicon.ico' %}" />
@@ -97,10 +97,10 @@
           <br>
           If you want to meet the team, just scroll down
           <br>
-          <i class="fa fa-angle-double-down" style="font-size: 40px;"></i>
+          <a href="teamID"><i class="fa fa-angle-double-down" style="font-size: 40px;"></i></a>
       </div>
       <hr style="height: 1px; width: 75%; background: white;">
-      <div class="teamContainer">
+      <div class="teamContainer" id="teamID">
         <div class="row topRow">
           <span class="title" style="text-decoration: underline;">DEVELOPERS</span>
         </div>
