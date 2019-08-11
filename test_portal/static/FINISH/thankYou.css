@@ -1,6 +1,6 @@
 .thankYouCircle {
     margin: auto;
-    height: 400px;
+    height: 100%;
     width: 400px;
     display: flex;
     align-items: center;
@@ -18,9 +18,11 @@
     height: 90%;
     width: 100%;
     position: absolute;
+    /*
     display: flex;
     flex-direction: column;
     justify-content: center;
+    */
     align-items: center;
 }
 
