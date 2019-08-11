@@ -33,14 +33,12 @@
     width: 100%;
     margin-top: 2%;
     height: 92%;
-    overflow: scroll;
 }
 
 .thankYouDeck .teamContainer {
     margin: auto;
     width: 70%;
     height: 90%;
-    overflow: scroll;
 }
 
 .topRow {
@@ -71,7 +69,7 @@
 .imageContainer .name {
     width: 100%;
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
     font-weight: 300
 }
