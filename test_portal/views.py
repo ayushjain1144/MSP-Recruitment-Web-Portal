@@ -16,6 +16,9 @@ from django.utils import timezone
 def welcome(request):
 	return render(request,'test_portal/welcome.html')
 
+def test(request):
+	return render(request,'test_portal/test.html')
+
 def register(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST)
