@@ -1,26 +1,26 @@
 function loadFunction() {
     
-    if (window.sessionStorage.getItem("sec_rem") === null) {
+    if (window.localStorage.getItem("sec_rem") === null) {
         var start_time_str = document.getElementById("start_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.        
         var start_time = Math.floor(Date.parse(start_time_str) / 1000);
         var curr_time_str = document.getElementById("curr_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.
         var curr_time = Math.floor(Date.parse(curr_time_str) / 1000);
-        window.sessionStorage.setItem("sec_rem", 3600 - (curr_time - start_time));   // Hardcoding it for 1 hour
+        window.localStorage.setItem("sec_rem", 3600 - (curr_time - start_time));   // Hardcoding it for 1 hour
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
     var count_q = document.getElementById("qnum-count").innerHTML;
     var round = "1";
            
-    if (window.sessionStorage.getItem("round") === null) {
-        window.sessionStorage.setItem("count_1", count_q);
-        window.sessionStorage.setItem("round", round);
+    if (window.localStorage.getItem("round") === null) {
+        window.localStorage.setItem("count_1", count_q);
+        window.localStorage.setItem("round", round);
     }
-    else if (window.sessionStorage.getItem("round") == "2" && window.sessionStorage.getItem("count_2") === null) {
-            window.sessionStorage.setItem("count_2", count_q);
+    else if (window.localStorage.getItem("round") == "2" && window.localStorage.getItem("count_2") === null) {
+            window.localStorage.setItem("count_2", count_q);
     }
 
-    round = window.sessionStorage.getItem("round");
+    round = window.localStorage.getItem("round");
     
     if (document.getElementById("hidden_round").value != round) {
         document.getElementsByName("Finish")[0].click();
@@ -44,22 +44,22 @@ function loadFunction() {
     3 - (Current Question) Info
     */
 
-    if (window.sessionStorage.getItem("btnMapping") === null) {
+    if (window.localStorage.getItem("btnMapping") === null) {
         btnMapping = ["btn-default", "btn-success", "btn-danger", "btn-info"];
-        window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
+        window.localStorage.setItem("btnMapping", JSON.stringify(btnMapping));
     }
-    if (window.sessionStorage.getItem("btnStatus_" + round) === null) {
+    if (window.localStorage.getItem("btnStatus_" + round) === null) {
         btnStatus = new Array(count_q);
         for (var i = 0; i < btnStatus.length; ++i) {
             btnStatus[i] = Number(0);
         }
-        window.sessionStorage.setItem("btnStatus_" + round, JSON.stringify(btnStatus));
+        window.localStorage.setItem("btnStatus_" + round, JSON.stringify(btnStatus));
     }
-    btnStatus = JSON.parse(window.sessionStorage.getItem("btnStatus_" + round));
+    btnStatus = JSON.parse(window.localStorage.getItem("btnStatus_" + round));
     btnStatus[qnum-1] = 3;
-    window.sessionStorage.setItem("btnStatus_" + round, JSON.stringify(btnStatus));
+    window.localStorage.setItem("btnStatus_" + round, JSON.stringify(btnStatus));
     
-    btnMapping = JSON.parse(window.sessionStorage.getItem("btnMapping"));
+    btnMapping = JSON.parse(window.localStorage.getItem("btnMapping"));
     var element = document.getElementById("button-set").getElementsByTagName("button");
     for (var i = 0; i < btnStatus.length; ++i) {
         element[i].className = "btn ";
@@ -75,7 +75,7 @@ function start_timer() {
 }
 
 function timer_helper() {
-    var sec_rem = parseInt(window.sessionStorage.getItem("sec_rem"));
+    var sec_rem = parseInt(window.localStorage.getItem("sec_rem"));
     --sec_rem;
     var mins = Math.floor(sec_rem / 60);
     var secs = sec_rem % 60;
@@ -91,23 +91,23 @@ function timer_helper() {
     if (sec_rem <= 0) {
         document.getElementsByName("Finish")[0].click();   
     }
-    window.sessionStorage.setItem("sec_rem", sec_rem);
+    window.localStorage.setItem("sec_rem", sec_rem);
 }
 
 function proceedRound2() {            
     btnClickMCQ();
-    window.sessionStorage.setItem("round", "2");
+    window.localStorage.setItem("round", "2");
 }
 
 function goBackRound1() {
     btnClickDes();
-    window.sessionStorage.setItem("round", "1");
+    window.localStorage.setItem("round", "1");
 }
 
 function finishTest() {
     var conf;
-    var round = window.sessionStorage.getItem("round");
-    var sec_rem = parseInt(window.sessionStorage.getItem("sec_rem"));
+    var round = window.localStorage.getItem("round");
+    var sec_rem = parseInt(window.localStorage.getItem("sec_rem"));
     if (sec_rem <= 1) {
         conf = true;   
     }
@@ -119,7 +119,7 @@ function finishTest() {
         conf = confirm("Are you sure you want to finish the test? You cannot return back!");
         if (conf == true) {        
             btnClickDes();
-            window.sessionStorage.setItem("round", "3");
+            window.localStorage.setItem("round", "3");
         }
     }
     return conf; 
@@ -135,8 +135,8 @@ function btnClickDes() {
     3 - (Current Question) Info
     */
 
-    btnStatus = JSON.parse(window.sessionStorage.getItem("btnStatus_2"));
-    btnMapping = JSON.parse(window.sessionStorage.getItem("btnMapping"));
+    btnStatus = JSON.parse(window.localStorage.getItem("btnStatus_2"));
+    btnMapping = JSON.parse(window.localStorage.getItem("btnMapping"));
     textarea = document.getElementById("comment");
 
     var element = document.getElementById("button-set").getElementsByTagName("button");
@@ -150,8 +150,8 @@ function btnClickDes() {
         btnStatus[qnum-1] = 1;
     }
 
-    window.sessionStorage.setItem("btnStatus_2", JSON.stringify(btnStatus));
-    window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
+    window.localStorage.setItem("btnStatus_2", JSON.stringify(btnStatus));
+    window.localStorage.setItem("btnMapping", JSON.stringify(btnMapping));
 }
 
 function btnClickMCQ() {
@@ -164,8 +164,8 @@ function btnClickMCQ() {
     3 - (Current Question) Info
     */
 
-    btnStatus = JSON.parse(window.sessionStorage.getItem("btnStatus_1"));
-    btnMapping = JSON.parse(window.sessionStorage.getItem("btnMapping"));
+    btnStatus = JSON.parse(window.localStorage.getItem("btnStatus_1"));
+    btnMapping = JSON.parse(window.localStorage.getItem("btnMapping"));
 
     var btnSelected = false;
     
@@ -188,8 +188,8 @@ function btnClickMCQ() {
         btnStatus[qnum-1] = 2;
     }
 
-    window.sessionStorage.setItem("btnStatus_1", JSON.stringify(btnStatus));
-    window.sessionStorage.setItem("btnMapping", JSON.stringify(btnMapping));
+    window.localStorage.setItem("btnStatus_1", JSON.stringify(btnStatus));
+    window.localStorage.setItem("btnMapping", JSON.stringify(btnMapping));
 }
 
 window.onload = loadFunction;
