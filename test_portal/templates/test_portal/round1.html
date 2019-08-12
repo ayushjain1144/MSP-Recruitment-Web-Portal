@@ -45,7 +45,9 @@
 
                         <span class="marks-span">&nbsp;Marks: <span id="marks">{{ question.marks }}</span>&nbsp;</span>
                         <br>
-                        <span id="question-p"> Q. {{ question.question }}</span>
+                        <div style="overflow: auto;">
+                            <span id="question-p">{{ question.question }}</span>
+                        </div>
                     </div>
                     <div class="response">
                         <div class="form-group">

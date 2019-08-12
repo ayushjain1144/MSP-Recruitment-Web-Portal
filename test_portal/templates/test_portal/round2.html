@@ -43,7 +43,9 @@
                         <span class="qnum-span">&nbsp;Question <span id="qnum">{{ pksent }}</span> of <span id="qnum-count">{{ count }}</span>&nbsp;</span>
                         <span class="marks-span">&nbsp;Marks: <span id="marks">{{ question.marks }}</span>&nbsp;</span>
                         <br>
-                        <span id="question-p">{{ question.question }}</span>
+                        <div style="overflow: auto;">
+                            <span id="question-p">{{ question.question }}</span>
+                        </div>
                     </div>
                     <div class="response">
                         <div class="form-group">
