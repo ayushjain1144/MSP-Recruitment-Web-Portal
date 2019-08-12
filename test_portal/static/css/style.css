@@ -37,6 +37,10 @@ nav {
     width: auto;
 }
 
+.nav-items {
+    margin-top: 10px;
+}
+
 .nav-item {
     color: white;
 }
