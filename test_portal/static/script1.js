@@ -3,7 +3,9 @@ function loadFunction() {
     if (window.sessionStorage.getItem("sec_rem") === null) {
         var start_time_str = document.getElementById("start_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.        
         var start_time = Math.floor(Date.parse(start_time_str) / 1000);
-        window.sessionStorage.setItem("sec_rem", 3600 - (Math.floor(Date.now() / 1000) - start_time));   // Hardcoding it for 1 hour
+        var curr_time_str = document.getElementById("curr_time").value + " GMT+0530 (India Standard Time)"; // Hardcoding it to be for India only. Can change later.
+        var curr_time = Math.floor(Date.parse(curr_time_str) / 1000);
+        window.sessionStorage.setItem("sec_rem", 3600 - (curr_time - start_time));   // Hardcoding it for 1 hour
     }
     
     var qnum = document.getElementById("qnum").innerHTML;
