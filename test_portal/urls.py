@@ -5,6 +5,7 @@ urlpatterns = [
     path('logout/', views.logout, name='test_logout'),
     path('register/', views.register, name = 'register'),
     path('', views.welcome, name='welcome'),
+    path('loaderio-158ef98a841f6e5ef17fb5d0b83a3992/', views.test, name = 'test'), 
 
     path('question/<slug:id>/', views.question_list, name='question_list'),
     path('question/<slug:id>/<int:ques_no>/', views.question_list, name='question_list'),
