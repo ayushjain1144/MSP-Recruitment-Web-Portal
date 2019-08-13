@@ -1,3 +1,5 @@
+var timer = null;
+
 function loadFunction() {
     
     if (window.localStorage.getItem("sec_rem") === null) {
@@ -71,7 +73,7 @@ function loadFunction() {
 }
 
 function start_timer() {
-    setInterval(timer_helper, 1000);
+    timer = setInterval(timer_helper, 1000);
 }
 
 function timer_helper() {
@@ -88,10 +90,11 @@ function timer_helper() {
     }    
     document.getElementById("timer-mins").innerHTML = mins_str;
     document.getElementById("timer-secs").innerHTML = secs_str;
+    window.localStorage.setItem("sec_rem", sec_rem);
     if (sec_rem <= 0) {
+        clearInterval(timer);
         document.getElementsByName("Finish")[0].click();   
     }
-    window.localStorage.setItem("sec_rem", sec_rem);
 }
 
 function proceedRound2() {            
