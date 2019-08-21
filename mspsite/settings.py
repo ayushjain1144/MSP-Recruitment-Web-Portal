@@ -15,7 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+MEDIA_URL='/media/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -79,11 +80,18 @@ WSGI_APPLICATION = 'mspsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DBNAME'],
-        'HOST': os.environ['DBHOST'],
-        'USER': os.environ['DBUSER'],
-        'PASSWORD': os.environ['DBPASS'],
-        'PORT': '',
+        # 'NAME': os.environ['DBNAME'],
+        # 'HOST': os.environ['DBHOST'],
+        # 'USER': os.environ['DBUSER'],
+        # 'PASSWORD': os.environ['DBPASS'],
+        # 'PORT': '5432',
+
+        'NAME': 'msptask',
+        'HOST': '127.0.0.1',
+        'USER': 'postgres',
+        'PASSWORD': 'Moshino44',
+        'PORT': '5432',
+
     }
 }
 

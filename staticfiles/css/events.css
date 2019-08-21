@@ -1,0 +1,44 @@
+.wlcm{
+	
+    font: 'Lobster', cursive;
+    font-size: 100px;
+  	font-style: italic;
+    position: absolute;
+  	left: 500px;
+  	top: 150px;
+  
+}
+.nxtbtn {
+  position: absolute;
+  left: 400px;
+  top: 350px;
+  font-size: 104px;
+}
+. h1{
+	position: absolute;
+  	
+  	top: 0px;
+  	width: 400px;
+  	height: 100px;
+}
+input[type=text], input[type=password],input[type=email],input[type=tel]  {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.clearfix{
+	position: absolute;
+  	left: 400px;
+}
+.register{
+	position: absolute;
+  	left: 500px;
+  	top: 10px;
+	
+}
+hr{
+	top: 20px;
+}
