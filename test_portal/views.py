@@ -10,6 +10,12 @@ from .models import ResponseSub, ResponseMCQ, Exam
 from .forms import GetResponse, GetResponseMCQ
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
+from django.forms import modelformset_factory
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from .forms import ImageFormMCQ, PostForm, ImageFormSub
+
 
 # Create your views here.
 
@@ -58,7 +64,7 @@ def login(request):
 					return HttpResponse('You have finished the test')
 				else:
 					auth.login(request, user)
-					return redirect(ques_detail_mcq, id = username)				
+					return redirect(ques_detail_mcq, id = username)
 			except Exam.DoesNotExist:
 				exam = Exam()
 				exam.user = Candidate.objects.get(username=username)
@@ -224,3 +230,56 @@ def response_save(request, pk, next, id = 'a',):
 def logout(request):
 	auth.logout(request)
 	return render(request, 'test_portal/thankYou.html')
+
+
+@staff_member_required
+def postMCQ(request):
+
+    ImageFormSet = modelformset_factory(ImageMCQ,
+                                        form=ImageForm, extra=0)
+    #'extra' means the number of photos that you can upload   ^
+    if request.method == 'POST':
+
+        postForm = PostForm(request.POST)
+        formset = ImageFormSet(request.POST, request.FILES,
+                               queryset=ImageMCQ.objects.none())
+
+
+        if postForm.is_valid():
+            post_form = postForm.save(commit=False)
+            post_form.user = request.user
+            post_form.save()
+
+            return HttpResponseRedirect("/")
+        else:
+            print(postForm.errors, formset.errors)
+    else:
+        postForm = PostForm()
+        formset = ImageFormSet(queryset=ImageMCQ.objects.none())
+    return render(request, 'index.html',  {'postForm': postForm, 'formset': formset} )
+
+@staff_member_required
+def postSub(request):
+
+    ImageFormSet = modelformset_factory(ImageSub,
+                                        form=ImageFormSub, extra=0)
+    #'extra' means the number of photos that you can upload   ^
+    if request.method == 'POST':
+
+        postForm = PostForm(request.POST)
+        formset = ImageFormSet(request.POST, request.FILES,
+                               queryset=ImageSub.objects.none())
+
+
+        if postForm.is_valid():
+            post_form = postForm.save(commit=False)
+            post_form.user = request.user
+            post_form.save()
+
+            return HttpResponseRedirect("/")
+        else:
+            print(postForm.errors, formset.errors)
+    else:
+        postForm = PostForm()
+        formset = ImageFormSet(queryset=ImageSub.objects.none())
+    return render(request, 'index.html',  {'postForm': postForm, 'formset': formset} )
