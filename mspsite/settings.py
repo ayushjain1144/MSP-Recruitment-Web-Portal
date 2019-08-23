@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
 # Application definition
 
 INSTALLED_APPS = [
-    'test_portal',
+    'test_portal.apps.TestPortalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'mspsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'mspsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['DBNAME'],
-        'HOST': os.environ['DBHOST'],
-        'USER': os.environ['DBUSER'],
-        'PASSWORD': os.environ['DBPASS'],
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mnew',
+        'USER': 'postgres',
+        'PASSWORD': 'myadmin@01',
+        'HOST' : 'localhost',
+        'PORT' :'5432',
     }
 }
 

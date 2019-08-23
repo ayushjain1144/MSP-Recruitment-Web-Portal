@@ -5,6 +5,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+
 class Candidate(models.Model):
 	firstName = models.CharField(max_length = 25, default = '')
 	lastName = models.CharField(max_length = 25, default = '')
@@ -31,17 +32,27 @@ class Exam(models.Model):
 
 	def __str__(self):
 		return self.user.bitsid
-	
+
 class QuestionSub(models.Model):
 
 	question = models.CharField(max_length=2000, default = '')
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null = True)
 
+	def get_image(self):
+		b= ImageSub.objects.filter(Sub_Ques=self.id)
+		Imagelist =list()
+		for e in b.all():
+			Imagelist.append(e.image.url)
+
+		return Imagelist
+
+
 	def __str__(self):
 		return self.question
 
 class QuestionMCQ(models.Model):
+
 
 	question = models.CharField(max_length=2000, default = '')
 	opt1 = models.CharField(default='', max_length=300)
@@ -50,11 +61,25 @@ class QuestionMCQ(models.Model):
 	opt4 = models.CharField(default='', max_length=300)
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null=True)
-	
+
 	ans1 = models.BooleanField(default=False)
 	ans2 = models.BooleanField(default=False)
 	ans3 = models.BooleanField(default=False)
 	ans4 = models.BooleanField(default=False)
+
+	def get_image(self):
+		b= ImageMCQ.objects.filter(MCQ_Ques=self.id)
+		Imagelist =list()
+		for e in b.all():
+			Imagelist.append(e.image.url)
+
+		return Imagelist
+
+
+
+
+
+
 
 	def __str__(self):
 		return self.question
@@ -79,7 +104,7 @@ class ResponseSub(models.Model):
 
 	def quesno(self):
 		return self.question.ques_no
-	
+
 class ResponseMCQ(models.Model):
 
 	user = models.ForeignKey("Candidate", on_delete=models.CASCADE,)
@@ -89,7 +114,6 @@ class ResponseMCQ(models.Model):
 	response2 = models.BooleanField(default=False)
 	response3 = models.BooleanField(default=False)
 	response4 = models.BooleanField(default=False)
-
 	marks = models.IntegerField(default=0)
 
 	def submit(self):
@@ -97,4 +121,14 @@ class ResponseMCQ(models.Model):
 
 	def __str__(self):
 		return str(self.response1)
-	
+
+
+class ImageMCQ(models.Model):
+	MCQ_Ques = models.ForeignKey(QuestionMCQ, default=None, on_delete='CASCADE')
+
+	image = models.ImageField(upload_to='static')
+
+class ImageSub(models.Model):
+
+	Sub_Ques = models.ForeignKey(QuestionSub, default=None, on_delete='CASCADE')
+	image = models.ImageField(upload_to='static')
