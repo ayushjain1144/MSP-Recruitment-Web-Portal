@@ -1,5 +1,5 @@
-export DBHOST="mspdatabasebits.postgres.database.azure.com"
-export DBUSER="manager@mspdatabasebits"
-export DBNAME="msp_database"
-export DBPASS="mspbits"
+export DBHOST="127.0.0.1"
+export DBUSER="postgres"
+export DBNAME="msptask"
+export DBPASS="Moshino*44"
 

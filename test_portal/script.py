@@ -1,8 +1,8 @@
 import csv, sys, os, django
 
-proj_path = "/home/vaibhav/MSP-Recruitment-Web-Portal/"
+proj_path = "D:\MSP-Recruitment-Web-Portal"
 # This is so Django knows where to find stuff.
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "test_portal.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mspsite.settings")
 sys.path.append(proj_path)
 
 # This is so my local_settings.py gets loaded.

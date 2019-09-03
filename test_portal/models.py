@@ -35,6 +35,8 @@ class Exam(models.Model):
 class QuestionSub(models.Model):
 
 	question = models.CharField(max_length=2000, default = '')
+	question_image=models.ImageField(null=True, blank= True, upload_to="uploads")
+
 	marks = models.IntegerField(default = 10)
 	ques_no = models.IntegerField(null = True)
 
@@ -44,6 +46,7 @@ class QuestionSub(models.Model):
 class QuestionMCQ(models.Model):
 
 	question = models.CharField(max_length=2000, default = '')
+	question_image=models.ImageField(null=True, blank= True, upload_to="uploads")
 	opt1 = models.CharField(default='', max_length=300)
 	opt2 = models.CharField(default='', max_length=300)
 	opt3 = models.CharField(default='', max_length=300)

@@ -1,0 +1,272 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    min-height: 25%;
+}
+
+body {
+    background-image: url("/static/images/bg.png");
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'sans-serif';
+    font-size: 20px;
+}
+
+nav {
+    width: 100%;
+    box-shadow: 0px 2px 5px black;
+}
+
+.navbar-logo {
+    margin-left: 5px;
+    color: white;
+}
+
+.navbar-logo > img {
+    color: white;
+    height: 80px;
+    width: auto;
+}
+
+.nav-items {
+    margin-top: 10px;
+}
+
+.nav-item {
+    color: white;
+}
+
+.nav-item > p {
+    text-align: center;
+    padding: 15px;
+}
+
+#stage-heading {
+    font-weight: 700;
+}
+
+#stage-2-proceed, #stage-1-back {
+    color: white;
+    transition: 0.3s;
+}
+
+#stage-2-proceed:hover, #stage-1-back:hover {
+    color: grey;
+}
+
+#round1-logout {
+    display: none;
+}
+
+#finishBtn {
+    font-size: 18px;
+}
+
+.main {
+    min-height: 400px;
+    height: 60%;
+    padding: 0 2vw;
+    margin-top: 5%;
+    margin: 2.5% 4.5%;
+}
+
+.content {
+    float: right;
+    margin: 10px 1vw;
+    padding: 10px;
+    height: 100%;
+    background-color: rgba(204, 204, 204, 0.7);
+    border-radius: 10px;
+}
+
+.content > div {
+    height: 100%;
+}
+
+.qa {
+    height: 100%;
+}
+
+.question {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 55%;
+}
+
+.question > span {
+    font-size: 20px;
+}
+
+.qnum-span, .marks-span {
+    color: white;
+    background-color: lightslategray;
+    border-radius: 10px;
+}
+
+.marks-span {
+    float: right;
+}
+
+.form-group {
+    text-align: center;
+}
+
+.response {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.nav-arrow {
+    height: 100%;
+    padding-top: 15vh;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 6vw;
+}
+
+textarea {
+    resize: none;
+    color: black !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+}
+
+.ques-sel {
+    margin: 10px 1vw;
+    padding: 10px;
+    height: 100%;
+    background-color: rgba(204, 204, 204, 0.7);
+    border-radius: 10px;
+}
+
+#ques-sel-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+#ques-sel-time {
+    font-size: 20px;
+}
+
+.progress-info {
+    padding: 0.25vh 0;
+    margin: 0.5% 1vw;
+}
+
+.progress-info > div {    
+    background-color: rgba(204, 204, 204, 0.7);
+    border-radius: 10px;
+    margin: 5vh 0;
+    padding: 10px 20px;
+}
+
+.progress-info > div > div {
+    text-align: center;
+}
+
+.nav-arrow > button, #stage-2-proceed > p > button, #stage-1-back > p > button {
+    background: none;
+    border: none;
+}
+
+.nav-arrow > button > i {
+    color: grey;
+    transition: 0.3s;
+}
+
+.nav-arrow > button > i:hover {
+    color: darkslategray;
+}
+
+#button-set {
+    margin: 0;
+    padding: 0;
+}
+
+#button-set button {
+    margin: 3px 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.progress-info-colors {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+}
+
+.progress-info > div > div > span {
+    font-size: 18px;
+}
+
+form {
+    height: 100%;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.ck-button {
+    background-color: #343a40;
+    border-color: #343a40;
+    border-radius: 15px;
+    width: 35%;
+    margin: 10px 20px;
+    color: white !important;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.ck-button span {
+    transition: 0.3s;
+}
+
+.ck-button label {
+    border-radius: 15px;
+    padding: 0;
+    margin: 0;  
+    width: 100%;
+}
+
+.ck-button input:checked + span {
+    background-color: #5cb85c;
+}
+
+.ck-button label span {
+    padding: 15px 10px;
+    border-radius: 15px;
+    text-align: center;
+    display: block;
+}
+
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.left-chx {
+    float: left;
+}
+
+.right-chx {
+    float: right;
+}
