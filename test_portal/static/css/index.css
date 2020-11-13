@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .landing-page-bg-image {
     background: url('./images/bg-photo.jpg');
     background-position: center;
@@ -126,4 +127,135 @@ pre {
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+=======
+.landing-page-bg-image {
+    background: url('./images/bg-photo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw
+}
+
+canvas {
+    display: block;
+}
+
+
+#whitebox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    /* width: 460px;
+    height: 380px; */
+    width: 600px;
+    height: 450px;
+    background-color: white;
+    margin: 0;
+    padding: 20px;
+    overflow-y: auto;
+    /* text-align: center; */
+    font-family: 'Montserrat',
+        sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.credentials {
+    width: 100%;
+    border-radius: 25px;
+    height: 40px;
+    border-style: solid;
+    border-color: grey;
+    padding-left: 20px;
+}
+
+.submit {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    border-style: solid;
+    border-color: grey;
+    height: 40px;
+    background-color: white;
+}
+
+.form-control:focus {
+    border-color: #da6eaf !important;
+    box-shadow: 0 0 5px rgba(218, 110, 175, 1) !important;
+}
+
+.btn-primary {
+    border: none !important
+}
+
+
+/* Start of Transition */
+
+pre {
+    padding: 0;
+    margin: 0;
+}
+
+.load {
+    margin: 0 auto;
+    min-height: 100%;
+    width: 100%;
+    background: black;
+}
+
+.term {
+    font-family: monospace;
+    color: #fff;
+    opacity: 0.8;
+    font-size: 2em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.term:after {
+    content: "_";
+    opacity: 1;
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* End of Transition */
+
+@font-face {
+    font-family: Hacked;
+    src: url(https://hackedfont.com/HACKED.ttf);
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+>>>>>>> Stashed changes
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');

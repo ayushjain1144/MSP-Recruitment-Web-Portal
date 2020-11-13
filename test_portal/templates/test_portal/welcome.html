@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {% load staticfiles %}
 {% load static %}
 <!DOCTYPE html>
@@ -77,3 +78,84 @@
 </body>
 
 </html>
+=======
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="{% static 'images/msp-logo.png' %}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static '/css/instructions.css' %}">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="{% static '/login/manifest.json' %}" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>MSP Recruitment Test</title>
+</head>
+
+<body class="bg-dark">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div class="jumbotron jumbotron-fluid jumbotron-background text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="display-4">MSP Recruitment Test</h1>
+            <p class="lead">Welcome to the MSP recruitment test. Best of Luck!</p>
+            <hr class="my-4" style="background:whitesmoke">
+            <div style="display: flex">
+              <p class="lead" style="margin-right: 10px;">
+                <a class="btn btn-primary btn-lg jumbotron-button" href="{% url 'register' %}" target="_blank"
+                  role="button">Register</a>
+              </p>
+            </div>
+
+          </div>
+          <div class="col-md-6 d-none d-sm-block">
+            <img src="{% static 'images/msp-logo.png' %}" alt="msp" class="float-right">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid text-white">
+      <div class="row">
+        <div class="col-12">
+          <h1 style="text-align: center">Rules</h1>
+          <hr class="rulesTitleHr">
+        </div>
+      </div>
+    </div>
+    <div class="rulesBox">
+      <ul>
+        <li>Exam duration is of one hour.</li>
+		    <li>The exam consists of 15 questions divided into two rounds-1 and 2. Round 1 comprises of 7 questions and Round 2 comprises of 8 questions.</li>
+		    <li>Marking Scheme is written at the top of every question.</li>
+		    <li>All questions in Round 1 are of MCQ type where there may be more than one correct options. Round 2 questions are of subjective type.</li>
+		    <li>Make sure that you don't have any unauthorised material (e.g. written notes, notes in dictionaries, paper, and sticky tape eraser) with or near you. </li>
+		    <li>Everything you write must be in the rough sheets provided.</li>
+		    <li>If you have a question or need more papers, raise your hand and a senior will come to you. Seniors will not give hints or answers, so please do not ask for them.</li>
+		    <li>Leave the exam hall quickly and quietly. Remember to take all your belongings with you.</li>
+		    <li>Remember! Cheating is not allowed and action will be taken.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
+>>>>>>> Stashed changes

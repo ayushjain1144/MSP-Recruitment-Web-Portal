@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {% load staticfiles %}
 {% load static %}
 <!DOCTYPE html>
@@ -100,4 +101,111 @@
   <script src="{% static '/login/script.js' %}"></script>
 </body>
 
+=======
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <link rel="shortcut icon" href="{% static 'images/MLSA_badge.png' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="{% static '/login/manifest.json' %}" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>MLSA Recruitment Test</title>
+  <link rel="shortcut icon" href="{% static '/login/images/MLSA_badge.png' %}" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="{% static '/login/index.css' %}">
+</head>
+
+<body style="overflow: hidden; background: black">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root" style="height: 100%">
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <a class="navbar-brand" href="#">   
+        <img id="nav-image" src="{% static '/login/images/MLSA_logo.png' %}" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="#">Login<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="centered col-11" id="whitebox">
+          <div class="container-fluid">
+            <div class="row">
+              <img src="{% static '/login/images/MLSA_badge.png' %}" alt="" style="width:85px">&nbsp;
+              <h1 class="display-4">Login</h1>
+            </div>
+          </div>
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+          <form style="padding: 10px" id="register" action="" method="post">
+      {% csrf_token %}
+            <div class="form-group">
+              <label for="firstname">Username</label>
+              <input type="text" class="form-control" id="firstname" name="username" placeholder="Tom" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="********" required>
+            </div>
+            <button type="submit" value="Submit" class="btn btn-primary btn-block btn-lg"
+              style="background-color: #5c2d91">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <canvas id="c"></canvas>
+  <script src="{% static '/login/script.js' %}"></script>
+</body>
+
+>>>>>>> Stashed changes
 </html>

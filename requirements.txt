@@ -1,5 +1,11 @@
+<<<<<<< Updated upstream
 Django==2.2.2
 psycopg2==2.8.3
 pytz==2019.1
 sqlparse==0.3.0
+=======
+Django==2.2.2
+pytz==2019.1
+sqlparse==0.3.0
+>>>>>>> Stashed changes
 whitenoise==4.1

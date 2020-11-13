@@ -21,7 +21,7 @@ canvas {
     height: 380px; */
     width: 600px;
     height: 450px;
-    background-color: white;
+    background-color: black;
     margin: 0;
     padding: 20px;
     overflow-y: auto;
@@ -122,6 +122,15 @@ pre {
 @font-face {
     font-family: Hacked;
     src: url(https://hackedfont.com/HACKED.ttf);
+}
+
+#nav-image {
+    margin: 7px 0px 7px 0px;
+    height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    #nav-image{height:20px;}
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
