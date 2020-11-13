@@ -20,14 +20,19 @@ canvas {
     /* width: 460px;
     height: 380px; */
     width: 600px;
-    height: 450px;
+    /* height: 450px; */
     background-color: black;
     margin: 0;
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
     overflow-y: auto;
     /* text-align: center; */
     font-family: 'Montserrat',
         sans-serif;
+    box-shadow:         0px 0px 30px 0px rgba(92, 45, 145, 0.57);
+}
+
+.white-font{
+    color: white;
 }
 
 h1 {
@@ -60,7 +65,8 @@ h1 {
 }
 
 .btn-primary {
-    border: none !important
+    border: none !important;
+    margin-top: 40px;
 }
 
 

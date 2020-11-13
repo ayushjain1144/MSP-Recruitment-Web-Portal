@@ -3,15 +3,25 @@
 
 .jumbotron-background {
     /* background: url('./images/jumbotron-background.jpg'); */
-    background: linear-gradient(to right, rgb(218, 98, 118), #ffc3a0);
+    background: linear-gradient(to right, #2B025A, black);
     background-size: cover;
     background-position: center;
 }
 
 .jumbotron-button {
-    background-color: #bc2981;
-    border: #bc2981;
-    margin-top: 20px
+    background-color: transparent !important;
+    border-color: white !important;
+    border-width: 3px !important;
+    border-style: solid;
+    border-radius: 0px !important;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+.jumbotron-button:hover {
+    color: #0078d4 !important;
+    border-color: #0078d4 !important;
+    outline: none !important;
 }
 
 img {
